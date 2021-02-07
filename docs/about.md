@@ -1,46 +1,87 @@
-# Metuens deam
+# Youtube-dl Firefox Addon
+ Firefox extension to download videos/audio from Youtube and others video websites using [youtube-dl](https://github.com/rg3/youtube-dl)
 
-## Deos ferum vos sinuavi templa
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Lorem markdownum nepotes lacrimaeque totidem? Quoque *facerent memor meus*
-creatam mihi.
+## Table of Contents
+---
+ * [Description](#Description)
+ * [Prerequisites](#prerequisites)
+ * [Installation](#Installation)
+ * [How to use this addon](#how-to-use-this-addon)
+ * [Command line version](#Command-line-version)
+ * [Contributing](#Contributing)
+ * [Troubleshooting](#Troubleshooting)
+ * [License](#license)
 
-- Mycenae mediis selige virginitate iamque adspicit uda
-- Iamque mille mille
-- Illa lapides putaret Echo ictus
-- Famem Thisbe
-- Vultus erat
-- Sinistro vulnera nunc mittantur dempto
+## Description
+---
+This is a firefox addon helping you downloads youtube videos or audio using [youtube-dl](https://github.com/rg3/youtube-dl).
+Simply use the addon while browsing youtube to download the audio or video.
 
-## Tradit novum iram
+You can configure youtube-dl to download only audio, or convert into any desired format (mp3,wav,...) using FFMPEG, or download full video in any available quality. You can even download full Youtube playlists !
 
-Petis utrumque; ipso Thestias talibus alis, ritu caedis ab formam, certamina sub
-et dedecus. Saepe lapidoso altorum sistere cum ferrum, quae, mors sidera magni
-videntem proles. Est amissi suadent. Postes non creati patuit sequens mittam
-laedunt se recentes *lacrimis eripuit* volat, haec.
+The addon only display most commun formats : m4a (Native audio format for YT), mp3 (standard audio format) and mp4 (native video format for YT)
 
-1. Mirum plenum aetatem
-2. Diem ille externo orat ut natis montibus
-3. Sit in ne aureus
-4. Dentes condit
-5. Est sede arce chaos
-6. Videri terribilem matri
+---
+**NOTE**
 
-## Superis ponit sed
+It works with almost all markdown flavours (the below blank line matters).
 
-Non magna huic discedens persequerer notae; detestatur tantum ignibus patriosque
-fata sternitque atque tempora populis. Se mons residens nemus, pater [tum somnos
-Venus](http://vidit.org/ilion-et). Illi aut erit fortia, in madebit aequora,
-Herculeamque quod resonis stratis?
+---
 
-Cupressu vincemur sum totidem terras. Litore inmittitur exarsit et vastator,
-*ut* spissatus illo coit tertius. Tam maximus primum. Facinus torserat
-substravit patuit; et munera venatibus sociorum intremuit grandaevumque canis
-patefecit fusus sermone Vestaque. Teucras pontus est stetit, eosdem mortuaque
-sua clade tostos paene: notat sim iam.
+## Prerequisites
+---
+1. Needs [Mozilla Firefox](https://www.mozilla.org/fr/firefox/new/) installed.
+2. Needs [Python](https://www.python.org/downloads/windows/) installed. **Don't forget to check "ADD Python to Path"** and to "Disable PATH length limit"
+3. This has only been tested on Windows. Mac & Linux users might have to make some changes
 
-Tantaque furit, medio domum tantum in meta, terra suos quo, ausus expulit,
-virgine prioris carinam. Posset in Talibus silvis. Illi vis **qua** si caligine
-domum vobis dolendi omnibus. Qui namque Clytien geminasque, nec radix dryadas
-quicumque; ad mora exsistunt. Induitur **ulterius deus** inmedicabile addidit
-quod hirta fugit iudicis sinus, ut.
+
+
+## Installation
+---
+1. Clone/Download this repository
+2. Run the setup_win.bat file as ADMIN to install youtube-dl and necessary dependancies 
+3. Install the add on from [Firefox Addons Website](https://addons.mozilla.org/fr/firefox/addon/yt-dl-addon-for-windows/).
+4. Restart firefox and it should work 
+
+## How to use this addon
+---
+1. Go to any youtube page
+2. Press the addon's logo in the toolbar, then select the format you want (m4a, mp3, mp4)
+3. The video/audio will be downloaded in the background
+4. After the download is finished, you will get a notification saying the download has finished. 
+Note: The default download location is the "Download" folder. If you want to change that, check youtube-dl's [configuration](https://github.com/ytdl-org/youtube-dl#configuration)
+
+## Command line version
+---
+If you want to use youtube-dl from command line you need to add FFMPEG to system environnement variables.
+
+1. Go to "control Panel" > "System and Security" > "System"
+2. Go to "Advanced System Settings"
+3. Go to "Environement Variables"
+4. Now find "PATH" in the "System Variables" section and click "edit"
+5. Click "New" and write "C:\youtube_dl\FFMPEG\bin"
+6. Re-open your command prompt to commit changes
+
+## Contributing
+---
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+## Troubleshooting
+---
+If you experience youtube-dl errors message, it is highly possible that Youtube changed something making the program not working anymore. However, a fix is usually found within 24h so you just have to upgrade your youtube-dl version by using this command in a windows shell :
+```shell 
+pip install --upgrade youtube-dl
+```
+## License
+---
+This program is Youtube Dl Firefox Addon.
+
+Copyright (C) 2020  Thibaut Decombe. 
+
+Youtube Dl Firefox Addon is available under the MIT license. See the LICENSE file for more info.

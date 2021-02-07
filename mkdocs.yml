@@ -1,5 +1,17 @@
 site_name: Programming Memento
+site_url: https://unknownplatypus.github.io/programming-memento/
+repo_url: https://github.com/UnknownPlatypus/programming-memento
+site_author: Thibaut Decombe
+site_description: Programming Memento
 nav:
     - Home: index.md
+    - Git: git/index.md
     - About: about.md
+
 theme: readthedocs
+markdown_extensions:
+ - codehilite
+ - pymdownx.highlight:
+       linenums: true
+
+
