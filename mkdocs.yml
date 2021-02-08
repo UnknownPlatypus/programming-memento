@@ -8,10 +8,22 @@ nav:
     - Git: git/index.md
     - About: about.md
 
-theme: readthedocs
-markdown_extensions:
- - codehilite
- - pymdownx.highlight:
-       linenums: true
-
-
+theme:
+  name: material
+  palette:
+    scheme: slate # dark mode, use 'default' for light mode
+    primary: indigo # Couleur principale
+    accent: indigo # Couleur interactions (hover,...)
+  font:
+    text: Roboto
+    code: Roboto Mono
+  language: en
+  icon:
+    logo: material/webpack
+  features:
+    - navigation.tabs # Header navigation bar
+    - navigation.tabs.sticky #Freeze on scroll (BUGGED)
+    - navigation.instant # XHR for links
+    # - navigation.expand
+    - toc.integrate #Table of content integrated on left
+# https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
