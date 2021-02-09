@@ -1,17 +1,26 @@
 site_name: Programming Memento
 site_url: https://unknownplatypus.github.io/programming-memento/
 repo_url: https://github.com/UnknownPlatypus/programming-memento
-site_author: Thibaut Decombe
+site_author: Unknown Platypus
 site_description: Programming Memento
 nav:
     - Home: index.md
-    - Git: git/index.md
+    - 'Git':
+        - 'Git Essentials': 'git/index.md'
+        #- 'Advanced': 'git/adv.md'
+        - 'Git Branch': 'git/branch.md'
+        - 'Undo Commits': 'git/commit.md'
+        - 'Git Stash': 'git/stash.md'
+        - 'Git Remote': 'git/remote.md'
+        - 'Fork & Pull Request': 'git/fork_pullrequest.md'
+        - 'Git Flow': 'git/git_flow.md'
     - About: about.md
 
+# SITE THEME
 theme:
   name: material
   palette:
-    scheme: slate # dark mode, use 'default' for light mode
+    scheme: slate # dark mode, use 'default' for light mode, 'slate' for dark mode
     primary: indigo # Couleur principale
     accent: indigo # Couleur interactions (hover,...)
   font:
@@ -22,8 +31,35 @@ theme:
     logo: material/webpack
   features:
     - navigation.tabs # Header navigation bar
-    - navigation.tabs.sticky #Freeze on scroll (BUGGED)
     - navigation.instant # XHR for links
-    # - navigation.expand
     - toc.integrate #Table of content integrated on left
-# https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
+
+# SYNTAX HIGHLIGHT
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - markdown.extensions.admonition # Note/Danger blocks
+  - pymdownx.details # Note/Danger blocks can collapse
+  - pymdownx.tabbed # Tabbed code blocks
+  - footnotes # Footnote references
+
+# SEARCH PLUGIN
+plugins:
+  - search:
+      lang:
+        - en
+
+# SETUP ANALYTICS (TRY THIS LATER)
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto
+
+#Social connect & Copyright
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/UnknownPlatypus
+      name: UnknownPlatypus on Github
+copyright: Copyright &copy; 2021 Thibaut Decombe
+
