@@ -13,19 +13,21 @@
         <meta name="author" content="Unknown Platypus">
       
       
-      <link rel="shortcut icon" href="/programming-memento/assets/images/favicon.png">
+        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/git/commit/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
-        <title>Programming Memento</title>
+        <title>Undo Commits - Programming Memento</title>
       
     
     
-      <link rel="stylesheet" href="/programming-memento/assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="/programming-memento/assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -65,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#undo-commits-changes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              
+              Undo Commits
             
           </span>
         </div>
@@ -162,7 +169,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/programming-memento/." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -171,13 +178,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="/programming-memento/git/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Git
       </a>
     </li>
@@ -190,7 +199,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="/programming-memento/about/" class="md-tabs__link">
+    <a href="../../about/" class="md-tabs__link">
       About
     </a>
   </li>
@@ -252,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -265,12 +274,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
       
       <label class="md-nav__link" for="nav-2">
         Git
@@ -289,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Git Essentials
       </a>
     </li>
@@ -301,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/branch/" class="md-nav__link">
+      <a href="../branch/" class="md-nav__link">
         Git Branch
       </a>
     </li>
@@ -311,11 +322,70 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/programming-memento/git/commit/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Undo Commits
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Undo Commits
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revert-a-commit-doesnt-change-history" class="md-nav__link">
+    Revert a commit (Doesn't change history)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revert-changes-made-after-last-commit" class="md-nav__link">
+    Revert changes made after last commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revert-to-specific-commit" class="md-nav__link">
+    Revert to specific commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amend" class="md-nav__link">
+    Amend
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -325,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/stash/" class="md-nav__link">
+      <a href="../stash/" class="md-nav__link">
         Git Stash
       </a>
     </li>
@@ -337,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/remote/" class="md-nav__link">
+      <a href="../remote/" class="md-nav__link">
         Git Remote
       </a>
     </li>
@@ -349,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/fork_pullrequest/" class="md-nav__link">
+      <a href="../fork_pullrequest/" class="md-nav__link">
         Fork & Pull Request
       </a>
     </li>
@@ -361,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/git/git_flow/" class="md-nav__link">
+      <a href="../git_flow/" class="md-nav__link">
         Git Flow
       </a>
     </li>
@@ -382,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/programming-memento/about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         About
       </a>
     </li>
@@ -400,7 +470,105 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/UnknownPlatypus/programming-memento/edit/master/docs/git/commit.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="undo-commits-changes"><strong>Undo commits &amp; changes</strong></h1>
+<hr />
+<h2 id="revert-a-commit-doesnt-change-history"><strong>Revert a commit (Doesn't change history)</strong></h2>
+<p><em>Revert every changes made in a commit with a new 'revert' commit</em></p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Full Commit</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git revert 7921a1e
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Specific File</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git revert 7921a1e index.html
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h2 id="revert-changes-made-after-last-commit"><strong>Revert changes made after last commit </strong></h2>
+<p><em>Revert every changes made after last commit. 3 modes available :</em></p>
+<ul>
+<li><em><strong>Soft :</strong> Keep changes, Unstage changes</em></li>
+<li><em><strong>Mixed(default) :</strong> Keep changes, Unstage changes</em></li>
+<li><em><strong>Hard :</strong> Delete changes</em></li>
+</ul>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Mixed</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset --mixed
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Soft</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset --soft
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Hard</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset --hard
+</code></pre></div>
+</td></tr></table>
+<div class="admonition warning">
+<p class="admonition-title">Warning<p>You permanently lose every changes made locally since last commit</p>
+</p>
+</div>
+</div>
+</div>
+<h2 id="revert-to-specific-commit"><strong>Revert to specific commit </strong></h2>
+<p><em>Use Case #1 : How to reset last terrible commit (Last good commit is 32e4fc4)) ?</em><br />
+<em>Use Case #2 : How to rewrite history since commit 47e9cf6 ?</em></p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Case #1</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset 32e4fc4
+<span class="c1"># Edit files as necessary</span>
+git commit -a -m <span class="s2">&quot;Fix terrible bug&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Go in the past, make changes to fix bug and then commit to rewrite history.</p>
+</div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Case #2</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset 47e9cf6
+git commit -a -m <span class="s2">&quot;History rewritten, changes retains&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>We go back to commit 47e9cf6. History is removed but files are not modified locally.
+Then we commit changes, history between commit and master has been rewritten.</p>
+</div>
+</div>
+</div>
+<h2 id="amend"><strong>Amend</strong></h2>
+<p>Combine few commits</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Default (Confirm commit message)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit --amend
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Change commit message</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit --amend -m <span class="s2">&quot;New commit message&quot;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only do this locally on commits we haven't push to remote yet !</p>
+</div>
+                
+              
+              
+                
+
 
               
             </article>
@@ -410,6 +578,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../branch/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Git Branch
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../stash/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Git Stash
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -441,15 +644,15 @@
       
     </div>
     
-      <script src="/programming-memento/assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="/programming-memento/assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "/programming-memento/",
+          base: "../..",
           features: ['navigation.tabs', 'navigation.instant', 'toc.integrate'],
           search: Object.assign({
-            worker: "/programming-memento/assets/javascripts/worker/search.9c0e82ba.min.js"
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

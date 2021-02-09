@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://unknownplatypus.github.io/programming-memento/</loc>
-     <lastmod>2021-02-08</lastmod>
+     <lastmod>2021-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://unknownplatypus.github.io/programming-memento/git/</loc>
-     <lastmod>2021-02-08</lastmod>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/branch/</loc>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/commit/</loc>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/stash/</loc>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/remote/</loc>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/fork_pullrequest/</loc>
+     <lastmod>2021-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://unknownplatypus.github.io/programming-memento/git/git_flow/</loc>
+     <lastmod>2021-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://unknownplatypus.github.io/programming-memento/about/</loc>
-     <lastmod>2021-02-08</lastmod>
+     <lastmod>2021-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

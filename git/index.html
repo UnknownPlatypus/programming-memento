@@ -10,7 +10,7 @@
       
       
       
-        <meta name="author" content="Thibaut Decombe">
+        <meta name="author" content="Unknown Platypus">
       
       
         <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/git/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Git - Programming Memento</title>
+        <title>Git Essentials - Programming Memento</title>
       
     
     
@@ -28,6 +28,10 @@
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
         
       
     
@@ -54,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
       
   
     
@@ -64,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#essentials" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +84,7 @@
     <a href="https://unknownplatypus.github.io/programming-memento/" title="Programming Memento" class="md-header-nav__button md-logo" aria-label="Programming Memento">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.45 17.39l-8.09 4.58V18.4l5.04-2.77 3.05 1.76m.55-.5V7.31L18.04 9v6.18L21 16.89m-17.45.5l8.09 4.57V18.4L6.6 15.63l-3.05 1.76m-.55-.5V7.31L5.96 9v6.18L3 16.89m.35-10.2L11.64 2v3.45L6.33 8.37l-.05.02-2.93-1.7m17.3 0L12.36 2v3.45l5.31 2.93.04.02 2.94-1.71m-9.01 10.9l-4.97-2.74V9.44l4.97 2.87v5.28m.72 0l4.97-2.73V9.44l-4.97 2.87v5.28M7 8.81l5-2.75 5 2.75-5 2.88-5-2.88z"/></svg>
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -96,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Git
+              Git Essentials
             
           </span>
         </div>
@@ -154,6 +158,57 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Git
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -167,13 +222,17 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://unknownplatypus.github.io/programming-memento/" title="Programming Memento" class="md-nav__button md-logo" aria-label="Programming Memento">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.45 17.39l-8.09 4.58V18.4l5.04-2.77 3.05 1.76m.55-.5V7.31L18.04 9v6.18L21 16.89m-17.45.5l8.09 4.57V18.4L6.6 15.63l-3.05 1.76m-.55-.5V7.31L5.96 9v6.18L3 16.89m.35-10.2L11.64 2v3.45L6.33 8.37l-.05.02-2.93-1.7m17.3 0L12.36 2v3.45l5.31 2.93.04.02 2.94-1.71m-9.01 10.9l-4.97-2.74V9.44l4.97 2.87v5.28m.72 0l4.97-2.73V9.44l-4.97 2.87v5.28M7 8.81l5-2.75 5 2.75-5 2.88-5-2.88z"/></svg>
 
     </a>
     Programming Memento
@@ -218,6 +277,30 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -226,12 +309,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Git
+          Git Essentials
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Git
+        Git Essentials
       </a>
       
         
@@ -276,29 +359,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ajouterenlever-des-fichiers-du-tracking" class="md-nav__link">
-    Ajouter/enlever des fichiers du tracking
+  <a href="#git-addreset" class="md-nav__link">
+    Git add/reset
+  </a>
+  
+    <nav class="md-nav" aria-label="Git add/reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-add" class="md-nav__link">
+    Git add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-reset" class="md-nav__link">
+    Git reset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-commit" class="md-nav__link">
+    Git commit
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faire-un-commit" class="md-nav__link">
-    Faire un commit
+  <a href="#git-log" class="md-nav__link">
+    Git log
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#voir-les-derniers-commit" class="md-nav__link">
-    Voir les derniers commit
+  <a href="#git-diff" class="md-nav__link">
+    Git diff
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#voir-les-differences-avec-ancien-commits" class="md-nav__link">
-    Voir les différences avec ancien commits
+  <a href="#gitignore" class="md-nav__link">
+    Gitignore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    Sources
   </a>
   
 </li>
@@ -307,6 +424,84 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="branch/" class="md-nav__link">
+        Git Branch
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="commit/" class="md-nav__link">
+        Undo Commits
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stash/" class="md-nav__link">
+        Git Stash
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="remote/" class="md-nav__link">
+        Git Remote
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fork_pullrequest/" class="md-nav__link">
+        Fork & Pull Request
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="git_flow/" class="md-nav__link">
+        Git Flow
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -333,86 +528,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-init" class="md-nav__link">
-    Git init
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-config" class="md-nav__link">
-    Git config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-status" class="md-nav__link">
-    Git status
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ajouterenlever-des-fichiers-du-tracking" class="md-nav__link">
-    Ajouter/enlever des fichiers du tracking
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#faire-un-commit" class="md-nav__link">
-    Faire un commit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-les-derniers-commit" class="md-nav__link">
-    Voir les derniers commit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-les-differences-avec-ancien-commits" class="md-nav__link">
-    Voir les différences avec ancien commits
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -423,50 +538,164 @@
                   </a>
                 
                 
-                <h1 id="git">Git</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Git est un logiciel de gestion de versions décentralisé : Cela permet d'avoir les données en local mais aussi en remote. 
-Git ne repose pas sur un serveur centralisé, mais il utilise un système de connexion pair à pair. Le code informatique développé est stocké non seulement sur l’ordinateur de chaque contributeur du projet, mais il peut également l'être sur un serveur dédié. </p>
-<h2 id="git-init">Git init</h2>
+                <h1 id="essentials"><strong>Essentials</strong></h1>
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p><em>Git is a decentralized version management software: It allows to store data remotely but also locally.
+Git does not rely on a centralized server, but uses a peer-to-peer connection system. The developed computer code is stored not only on the computer of each project contributor, but it can also be stored on a dedicated server (Remote).</em></p>
+<h2 id="git-init"><strong>Git init</strong></h2>
 <hr />
-<p>Initialisation du dossier git. Création du dossier .git</p>
-<pre><code class="language-console">git init
-</code></pre>
-<pre><code class="language-javascript">alert(&quot;A JavaScript Alert!&quot;);
-var b =3;
-</code></pre>
-<h2 id="git-config">Git config</h2>
+<p><em>Initialize a .git repository.
+It can be used to convert an existing, unversioned project to a Git repository or initialize a new, empty repository.</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="go">git init</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="git-config"><strong>Git config</strong></h2>
 <hr />
-<pre><code class="language-shell">git config --global user.email &quot;myemail@gmail.com&quot;
-git config --global user.name &quot;Thibaut&quot;
-</code></pre>
-<p>Pour voir la config actuelle :</p>
-<pre><code class="language-shell">git config --list 
-</code></pre>
-<h2 id="git-status">Git status</h2>
+<p><em>Setup user details.
+Git will associate them with locally created commits.</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s2">&quot;myemail@gmail.com&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s2">&quot;MyUsername&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p><em>To see current config :</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git config --list 
+</code></pre></div>
+</td></tr></table>
+<details class="exemple"><summary>Result</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>user.name<span class="o">=</span>MyUsername
+user.email<span class="o">=</span>myemail@gmail.com
+</code></pre></div>
+</td></tr></table>
+</details>
+<h2 id="git-status"><strong>Git status</strong></h2>
 <hr />
-<p><code>git status</code> : Renvoie les informations sur le dossier git actuel.
-Untracked/new/changed/removed files</p>
-<h2 id="ajouterenlever-des-fichiers-du-tracking">Ajouter/enlever des fichiers du tracking</h2>
+<p><em>Get informations about the current git directory (Untracked/new/changed/removed files)</em>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git status 
+</code></pre></div>
+</td></tr></table></p>
+<h2 id="git-addreset"><strong>Git add/reset</strong></h2>
 <hr />
-<p><code>git add readme.md</code>  : Le fichier est maintenant traqué
-<code>git add *.html</code> : Ajoute tout les fichiers html
-<code>git add --all</code> : Ajoute tout les fichiers (Faire un git status avant pour éviter les erreurs)
-<code>git reset HEAD readme.md</code> : Annule le dernier git add readme.md. Le fichier est à nouveau non traqué (mais les modifs sont gardés)
-<code>git reset HEAD</code> : Annule tout les derniers git add (unstage all)</p>
-<h2 id="faire-un-commit">Faire un commit</h2>
+<p>Add/remove files from git tracking</p>
+<h3 id="git-add"><strong>Git add</strong></h3>
+<p><em>Add to tracking (Stage changes)</em></p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Single File</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add readme.md 
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>readme.md file is staged</p>
+</details>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Every HTML Files</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add *.html
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>Every HTML files are staged</p>
+</details>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">All Files</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add --all
+</code></pre></div>
+</td></tr></table>
+<details class="tip" open="open"><summary>Tip</summary><p>Every available files are staged.<br />
+You should <code>git status</code> first to make sure you are not tracking unwanted files.</p>
+</details>
+</div>
+</div>
+<h3 id="git-reset"><strong>Git reset</strong></h3>
+<p><em>Remove files from git tracking</em></p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Single File</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset HEAD readme.md 
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>readme.md file is not tracked anymore (But changes made to the file remain unchanged)</p>
+</details>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">All Files</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git reset HEAD
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>Cancels all last git add (Unstage all)</p>
+</details>
+</div>
+</div>
+<h2 id="git-commit"><strong>Git commit</strong></h2>
 <hr />
-<p><code>git commit -m "Mon premier commit"</code>
-Ajouter au tracking et commit : <code>git commit -a -m "Premiere modif"</code></p>
-<h2 id="voir-les-derniers-commit">Voir les derniers commit</h2>
+<p><em>Commit changes to git. Only tracked files are committed.
+You can add files and commit with the same command line</em></p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Commit</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -m <span class="s2">&quot;Mon premier commit&quot;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Add + Commit</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -a -m <span class="s2">&quot;Premiere modif&quot;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h2 id="git-log"><strong>Git log</strong></h2>
 <hr />
-<p><code>git log</code> : Affiche les derniers commit
-<code>git log -n 2</code> : Affiche les 2 derniers commit
-<code>git log --oneline</code> : Version condensé avec ID du commit et message
-<code>git log --p readme.md</code> : Tout les commits associés au fichier readme.md</p>
-<h2 id="voir-les-differences-avec-ancien-commits">Voir les différences avec ancien commits</h2>
+<p><em>Git logging to see details about commits.</em></p>
+<ul>
+<li><strong>Git log :</strong> Basic operation</li>
+<li><strong>Oneline :</strong> Use One-line Display</li>
+<li><strong>File Specific :</strong> Display commits associated with a specific file</li>
+</ul>
+<div class="tabbed-set" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Git log</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git log  <span class="c1"># Shows last commits</span>
+git log -n <span class="m">2</span> <span class="c1"># Shows the last 2 commits</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Oneline</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git log --oneline 
+</code></pre></div>
+</td></tr></table>
+<details class="exemple" open="open"><summary>Exemple</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>1653f44 Create README.md
+8f3add2 Add requirements.txt
+1a5c42c New theme material
+3af103e First commit
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">File specific</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git log -p readme.md 
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h2 id="git-diff"><strong>Git diff</strong></h2>
 <hr />
-<p><code>git diff</code></p>
+<p><em>Display what changed since last commit</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git diff
+</code></pre></div>
+</td></tr></table>
+<h2 id="gitignore"><strong>Gitignore</strong></h2>
+<hr />
+<p><em>Setup files to ignore when versioning with a .gitignore file</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>*.tmp        <span class="c1"># Ignore tout les fichiers .tmp</span>
+log.txt      <span class="c1"># Ignore le fichier log.txt</span>
+tmp/*        <span class="c1"># Ignore tout les fichiers du dossier tmp</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="sources"><strong>Sources</strong></h2>
+<hr />
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://git-scm.com/docs">Git Docs</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
@@ -500,13 +729,13 @@ Ajouter au tracking et commit : <code>git commit -a -m "Premiere modif"</code></
           </a>
         
         
-          <a href="../about/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="branch/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                About
+                Git Branch
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -521,12 +750,26 @@ Ajouter au tracking et commit : <code>git commit -a -m "Premiere modif"</code></
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Thibaut Decombe
+          </div>
+        
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
       </div>
       
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/UnknownPlatypus" target="_blank" rel="noopener" title="UnknownPlatypus on Github" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
     </div>
   </div>
 </footer>
@@ -539,7 +782,7 @@ Ajouter au tracking et commit : <code>git commit -a -m "Premiere modif"</code></
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.tabs', 'navigation.instant', 'toc.integrate'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
