@@ -14,6 +14,26 @@ nav:
         - 'Git Remote': 'git/remote.md'
         - 'Fork & Pull Request': 'git/fork_pullrequest.md'
         - 'Git Flow': 'git/git_flow.md'
+    - 'JS':
+        - 'Introduction': 'javascript/main.md'
+        - 'Variable declaration': 'javascript/variable_decl.md'
+        - 'Arrow Function': 'javascript/arrow_function.md'
+        - 'Function default parameter value': 'javascript/function_default.md'
+        - 'Destructuring objects and arrays': 'javascript/destructuring.md'
+        - 'Map / filter / reduce / find': 'javascript/array_methods.md'
+        - 'Spread operator "..."': 'javascript/spread_operator.md'
+        - 'Object property shorthand': 'javascript/object_ppt.md'
+        - 'Promises': 'javascript/promises.md'
+        - 'Template literals': 'javascript/template_literals.md'
+        - 'Imports / Exports': 'javascript/import_export.md'
+        - 'JavaScript this': 'javascript/this.md'
+        - 'Class': 'javascript/class.md'
+        - 'Extends and super keywords': 'javascript/extend_super.md'
+        - 'Async Await': 'javascript/async.md'
+        - 'Truthy / Falsy': 'javascript/truthy.md'
+        - 'Anamorphisms / Catamporphisms': 'javascript/anamorphisms.md'
+        - 'Generators': 'javascript/generators.md'
+        - 'Static Methods': 'javascript/static_method.md'
     - About: about.md
 
 # SITE THEME
@@ -32,7 +52,7 @@ theme:
   features:
     - navigation.tabs # Header navigation bar
     - navigation.instant # XHR for links
-    - toc.integrate #Table of content integrated on left
+    #- toc.integrate #Table of content integrated on left
 
 # SYNTAX HIGHLIGHT
 markdown_extensions:
@@ -43,6 +63,7 @@ markdown_extensions:
   - pymdownx.details # Note/Danger blocks can collapse
   - pymdownx.tabbed # Tabbed code blocks
   - footnotes # Footnote references
+  - def_list # Lists
 
 # SEARCH PLUGIN
 plugins:
