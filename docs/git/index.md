@@ -1,5 +1,7 @@
 # **Essentials**
 
+![Modern JavaScript cheatsheet](https://miro.medium.com/max/1838/1*mtsk3fQ_BRemFidhkel3dA.png)
+
 ## **Introduction**
 
 *Git is a decentralized version management software: It allows to store data remotely but also locally.

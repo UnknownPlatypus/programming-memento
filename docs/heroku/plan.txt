@@ -1,0 +1,17 @@
+Preparing the Application
+- Procfile
+- requirements.txt (add gunicorn)
+- runtime.txt
+- heroku_settings.py
+- static assets
+- Postgre easy connection with dj-database-url
+
+Deployment
+- Create app
+- setup DB, env variable
+- push to deploy
+- migrate database
+
+Troubleshooting
+- Enable logging
+- user uploaded files not supported (media) need to connect with AWS S3

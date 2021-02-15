@@ -15,13 +15,13 @@ nav:
         - 'Fork & Pull Request': 'git/fork_pullrequest.md'
         - 'Git Flow': 'git/git_flow.md'
     - 'JS':
-        - 'Introduction': 'javascript/main.md'
+        - 'Introduction': 'javascript/index.md'
         - 'Variable declaration': 'javascript/variable_decl.md'
         - 'Arrow Function': 'javascript/arrow_function.md'
         - 'Function default parameter value': 'javascript/function_default.md'
         - 'Destructuring objects and arrays': 'javascript/destructuring.md'
         - 'Map / filter / reduce / find': 'javascript/array_methods.md'
-        - 'Spread operator "..."': 'javascript/spread_operator.md'
+        - 'Spread operator ...': 'javascript/spread_operator.md'
         - 'Object property shorthand': 'javascript/object_ppt.md'
         - 'Promises': 'javascript/promises.md'
         - 'Template literals': 'javascript/template_literals.md'
@@ -34,6 +34,11 @@ nav:
         - 'Anamorphisms / Catamporphisms': 'javascript/anamorphisms.md'
         - 'Generators': 'javascript/generators.md'
         - 'Static Methods': 'javascript/static_method.md'
+    - 'Heroku':
+        - 'Django Deploy': 'heroku/index.md'
+        - 'Preparing the App': 'heroku/app_prepare.md'
+        - 'Deployment': 'heroku/deployment.md'
+        - 'Troubleshooting': 'heroku/troubleshooting.md'
     - About: about.md
 
 # SITE THEME
