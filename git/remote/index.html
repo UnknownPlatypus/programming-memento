@@ -202,8 +202,24 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../javascript/main/" class="md-tabs__link">
+      <a href="../../javascript/" class="md-tabs__link">
         JS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../heroku/" class="md-tabs__link">
+        Heroku
       </a>
     </li>
   
@@ -393,6 +409,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create" class="md-nav__link">
     Create
   </a>
@@ -421,15 +444,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#list" class="md-nav__link">
-    List
+  <a href="#rename" class="md-nav__link">
+    Rename
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rename" class="md-nav__link">
-    Rename
+  <a href="#git-clone-someone-elses-repository-git-push-to-your-own-repository" class="md-nav__link">
+    Git clone someone else's repository &amp; Git push to your own repository
   </a>
   
 </li>
@@ -461,6 +484,18 @@
     <li class="md-nav__item">
       <a href="../git_flow/" class="md-nav__link">
         Git Flow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Git Use Cases
       </a>
     </li>
   
@@ -502,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascript/main/" class="md-nav__link">
+      <a href="../../javascript/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -575,7 +610,7 @@
   
     <li class="md-nav__item">
       <a href="../../javascript/spread_operator/" class="md-nav__link">
-        Spread operator "..."
+        Spread operator ...
       </a>
     </li>
   
@@ -738,6 +773,85 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Heroku
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Heroku" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Heroku
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/" class="md-nav__link">
+        Django Deploy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/app_prepare/" class="md-nav__link">
+        Preparing the App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../about/" class="md-nav__link">
         About
@@ -771,6 +885,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create" class="md-nav__link">
     Create
   </a>
@@ -799,15 +920,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#list" class="md-nav__link">
-    List
+  <a href="#rename" class="md-nav__link">
+    Rename
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rename" class="md-nav__link">
-    Rename
+  <a href="#git-clone-someone-elses-repository-git-push-to-your-own-repository" class="md-nav__link">
+    Git clone someone else's repository &amp; Git push to your own repository
   </a>
   
 </li>
@@ -832,9 +953,26 @@
                 <h1 id="remote"><strong>Remote</strong></h1>
 <hr />
 <p><em>Save all your git history to a remote (Github, Gitlab, ...)</em></p>
+<h2 id="list"><strong>List</strong></h2>
+<p><em>List every remotes or branches</em></p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Remote List</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git remote -v
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>List every remote available</p>
+</details>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Remote Branch List</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git branch -r
+</code></pre></div>
+</td></tr></table>
+<details class="info" open="open"><summary>Info</summary><p>List every remote branches available</p>
+</details>
+</div>
+</div>
 <h2 id="create"><strong>Create</strong></h2>
 <p><em>The template is : <code>git remote add &lt;remote_name&gt; &lt;adress&gt;</code></em></p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Github HTTPS</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Github HTTPS</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git remote add origin https://github.com/UnknownPlatypus/sound-play.git
 </code></pre></div>
 </td></tr></table>
@@ -842,14 +980,14 @@
 Always use <code>git status</code> first</p>
 </details>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Github SSH</label><div class="tabbed-content">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Github SSH</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git remote add origin git@github.com:User/UserRepo.git
 </code></pre></div>
 </td></tr></table>
 <details class="info" open="open"><summary>Info</summary><p>Untracked changes are also stashed !  </p>
 </details>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Local Remote</label><div class="tabbed-content">
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Local Remote</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -867,21 +1005,21 @@ git remote add origin C:/path/to/local/remote
 </div>
 <h2 id="clone"><strong>Clone</strong></h2>
 <p><em>The template is : <code>git clone &lt;remote_link&gt; &lt;local_name&gt;</code></em>  </p>
-<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Default</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Default</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/UnknownPlatypus/sound-play.git
 </code></pre></div>
 </td></tr></table>
 <details class="info" open="open"><summary>Info</summary><p>Clone repository in a 'sound-play' folder</p>
 </details>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Rename</label><div class="tabbed-content">
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Rename</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/UnknownPlatypus/sound-play.git custom_name   
 </code></pre></div>
 </td></tr></table>
 <details class="info" open="open"><summary>Info</summary><p>Clone repository in a 'custom_name' folder</p>
 </details>
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Depth limit</label><div class="tabbed-content">
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Depth limit</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone --depth <span class="m">5</span> https://github.com/UnknownPlatypus/sound-play.git
 </code></pre></div>
 </td></tr></table>
@@ -893,14 +1031,14 @@ git remote add origin C:/path/to/local/remote
 <p><em>The template is : <code>git push &lt;remote_name&gt; &lt;local_branch_name&gt;</code></em><br />
 <em>Best practice to use remote_name = origin for the main remote</em> 
 <em>(it's Github default for ex)</em></p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Push branch</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Push branch</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git push origin master
 git push origin igloo
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Remove remote branch</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Remove remote branch</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git remote rm igloo
 </code></pre></div>
 </td></tr></table>
@@ -908,7 +1046,7 @@ git push origin igloo
 </div>
 <h2 id="pull"><strong>Pull</strong></h2>
 <p><em>The template is : <code>git pull &lt;remote_name&gt; &lt;remote_branch_name&gt;</code></em> </p>
-<div class="tabbed-set" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Pull branch</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Pull branch</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git pull origin master
 </code></pre></div>
 </td></tr></table>
@@ -916,32 +1054,15 @@ git push origin igloo
 Use rebase to avoid that </p>
 </details>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Pull branch &amp; Rebase History</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Pull branch &amp; Rebase History</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git pull --rebase origin master
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Setup rebase as default</label><div class="tabbed-content">
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Setup rebase as default</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git config --global branch.autosetuprebase always
 </code></pre></div>
 </td></tr></table>
-</div>
-</div>
-<h2 id="list"><strong>List</strong></h2>
-<p><em>List every remotes or branches</em></p>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Remote List</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git remote -v
-</code></pre></div>
-</td></tr></table>
-<details class="info" open="open"><summary>Info</summary><p>List every remote available</p>
-</details>
-</div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Remote Branch List</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git branch -r
-</code></pre></div>
-</td></tr></table>
-<details class="info" open="open"><summary>Info</summary><p>List every remote branches available</p>
-</details>
 </div>
 </div>
 <h2 id="rename"><strong>Rename</strong></h2>
@@ -951,6 +1072,53 @@ Use rebase to avoid that </p>
 <details class="info" open="open"><summary>Info</summary><p>Now the remote name is 'lol' instead of 'origin'<br />
 You can use <code>git remote -v</code> to see that</p>
 </details>
+<h2 id="git-clone-someone-elses-repository-git-push-to-your-own-repository"><strong>Git clone someone else's repository &amp; Git push to your own repository</strong></h2>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Linked to origin repo</label><div class="tabbed-content"></div>
+</div>
+<ol>
+<li>
+<p>Create a new repository at github.com. (this is your repository)
+Give it the same name as the other repository.
+Don't initialize it with a README, .gitignore, or license.</p>
+</li>
+<li>
+<p>Clone the other repository to your local machine. (if you haven't done so already)
+    <code>git clone https://github.com/other-account/other-repository.git</code></p>
+</li>
+<li>
+<p>Rename the local repository's current 'origin' to 'upstream'. 
+    <code>git remote rename origin upstream</code></p>
+</li>
+<li>
+<p>Give the local repository an 'origin' that points to your repository.
+    <code>git remote add origin https://github.com/your-account/your-repository.git</code></p>
+</li>
+<li>
+<p>Push the local repository to your repository on github.
+    <code>git push origin master</code></p>
+</li>
+</ol>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Unlinked to origin repo</label><div class="tabbed-content"></div>
+</div>
+<ol>
+<li>
+<p>Create a new repository at github.com. (this is your repository)
+Give it the same name as the other repository.
+Don't initialize it with a README, .gitignore, or license.</p>
+</li>
+<li>
+<p>Clone the other repository to your local machine. (if you haven't done so already)
+    <code>git clone https://github.com/other-account/other-repository.git</code></p>
+</li>
+<li>
+<p>Change the local repository's current 'origin' to a new url. 
+    <code>git remote set-url origin http://github.com/YOU/YOUR_REPO</code></p>
+</li>
+<li>
+<p>Push the local repository to your repository on github.
+    <code>git push origin master</code></p>
+</li>
+</ol>
                 
               
               

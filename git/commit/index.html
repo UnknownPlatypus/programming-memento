@@ -202,8 +202,24 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../javascript/main/" class="md-tabs__link">
+      <a href="../../javascript/" class="md-tabs__link">
         JS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../heroku/" class="md-tabs__link">
+        Heroku
       </a>
     </li>
   
@@ -390,6 +406,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#remove-a-specific-commit" class="md-nav__link">
+    Remove a specific commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#amend" class="md-nav__link">
     Amend
   </a>
@@ -452,6 +475,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/" class="md-nav__link">
+        Git Use Cases
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -488,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascript/main/" class="md-nav__link">
+      <a href="../../javascript/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -561,7 +596,7 @@
   
     <li class="md-nav__item">
       <a href="../../javascript/spread_operator/" class="md-nav__link">
-        Spread operator "..."
+        Spread operator ...
       </a>
     </li>
   
@@ -724,6 +759,85 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Heroku
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Heroku" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Heroku
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/" class="md-nav__link">
+        Django Deploy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/app_prepare/" class="md-nav__link">
+        Preparing the App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../about/" class="md-nav__link">
         About
@@ -773,6 +887,13 @@
         <li class="md-nav__item">
   <a href="#revert-to-specific-commit" class="md-nav__link">
     Revert to specific commit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-a-specific-commit" class="md-nav__link">
+    Remove a specific commit
   </a>
   
 </li>
@@ -872,14 +993,34 @@ Then we commit changes, history between commit and master has been rewritten.</p
 </div>
 </div>
 </div>
+<h2 id="remove-a-specific-commit"><strong>Remove a specific commit </strong></h2>
+<p><em>Use Case : You leaked information in a specific commit and you want to completely remove this commit ?</em>  </p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Remove commit from history</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git rebase -i HEAD~x
+<span class="c1"># x is the number of commits</span>
+<span class="c1"># Enter &quot;drop&quot; besides the commit you want to drop</span>
+
+git  push --force-with-lease
+</code></pre></div>
+</td></tr></table>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Don't forget to first copy changes you made in the commit if you want to reupoad a fixed version in a new commit after</p>
+</div>
+</div>
+</div>
 <h2 id="amend"><strong>Amend</strong></h2>
 <p>Combine few commits</p>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Default (Confirm commit message)</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Default (Confirm commit message)</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit --amend
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Change commit message</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Change commit message</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit --amend -m <span class="s2">&quot;New commit message&quot;</span>
 </code></pre></div>
 </td></tr></table>
