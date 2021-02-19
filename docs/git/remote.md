@@ -3,6 +3,27 @@
 
 *Save all your git history to a remote (Github, Gitlab, ...)*
 
+## **List**
+*List every remotes or branches*
+=== "Remote List"
+
+    ``` sh
+    git remote -v
+    ```
+
+    ???+ info
+        List every remote available
+
+=== "Remote Branch List"
+
+    ``` sh
+    git branch -r
+    ```
+
+    ???+ info
+        List every remote branches available
+
+
 ## **Create**
 
 *The template is : `git remote add <remote_name> <adress>`*
@@ -118,29 +139,6 @@
     git config --global branch.autosetuprebase always
     ```
 
-
-## **List**
-*List every remotes or branches*
-=== "Remote List"
-
-    ``` sh
-    git remote -v
-    ```
-
-    ???+ info
-        List every remote available
-
-=== "Remote Branch List"
-
-    ``` sh
-    git branch -r
-    ```
-
-    ???+ info
-        List every remote branches available
-
-
-
 ## **Rename**
 
 ``` sh
@@ -150,3 +148,40 @@ git remote rename origin lol
 ???+ info
     Now the remote name is 'lol' instead of 'origin'  
     You can use `git remote -v` to see that
+
+
+## **Git clone someone else's repository & Git push to your own repository**
+
+=== "Linked to origin repo"
+
+1. Create a new repository at github.com. (this is your repository)
+Give it the same name as the other repository.
+Don't initialize it with a README, .gitignore, or license.
+
+2. Clone the other repository to your local machine. (if you haven't done so already)
+    `git clone https://github.com/other-account/other-repository.git`
+
+3. Rename the local repository's current 'origin' to 'upstream'. 
+    `git remote rename origin upstream`
+
+4. Give the local repository an 'origin' that points to your repository.
+    `git remote add origin https://github.com/your-account/your-repository.git`
+
+5. Push the local repository to your repository on github.
+    `git push origin master`
+   
+  
+=== "Unlinked to origin repo"
+
+1. Create a new repository at github.com. (this is your repository)
+Give it the same name as the other repository.
+Don't initialize it with a README, .gitignore, or license.
+
+2. Clone the other repository to your local machine. (if you haven't done so already)
+    `git clone https://github.com/other-account/other-repository.git`
+
+3. Change the local repository's current 'origin' to a new url. 
+    `git remote set-url origin http://github.com/YOU/YOUR_REPO`
+
+4. Push the local repository to your repository on github.
+    `git push origin master`

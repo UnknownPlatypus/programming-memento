@@ -14,6 +14,7 @@ nav:
         - 'Git Remote': 'git/remote.md'
         - 'Fork & Pull Request': 'git/fork_pullrequest.md'
         - 'Git Flow': 'git/git_flow.md'
+        - 'Git Use Cases': 'git/usecases.md'
     - 'JS':
         - 'Introduction': 'javascript/index.md'
         - 'Variable declaration': 'javascript/variable_decl.md'
