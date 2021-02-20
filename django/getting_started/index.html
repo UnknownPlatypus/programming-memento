@@ -13,14 +13,14 @@
         <meta name="author" content="Unknown Platypus">
       
       
-        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/heroku/deployment/">
+        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/django/getting_started/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
-        <title>Deployment - Programming Memento</title>
+        <title>Getting Started - Programming Memento</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deployment" class="md-skip">
+        <a href="#starting-a-project" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Deployment
+              Getting Started
             
           </span>
         </div>
@@ -210,15 +210,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../heroku/" class="md-tabs__link">
         Heroku
       </a>
     </li>
@@ -228,13 +226,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../django/getting_started/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Django
       </a>
     </li>
@@ -706,14 +706,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
       <label class="md-nav__link" for="nav-4">
         Heroku
@@ -732,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../heroku/" class="md-nav__link">
         Django Deploy
       </a>
     </li>
@@ -744,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../app_prepare/" class="md-nav__link">
+      <a href="../../heroku/app_prepare/" class="md-nav__link">
         Preparing the App
       </a>
     </li>
@@ -754,91 +752,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Deployment
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../heroku/deployment/" class="md-nav__link">
         Deployment
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-app" class="md-nav__link">
-    Create App &amp;
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-plugins-env-variables" class="md-nav__link">
-    Setup plugins &amp; Env variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploy-heroku-push" class="md-nav__link">
-    Deploy (heroku push)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#heroku_settingspy" class="md-nav__link">
-    heroku_settings.py
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migrate-database" class="md-nav__link">
-    Migrate Database
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-superuser" class="md-nav__link">
-    Create superuser
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#staging-server" class="md-nav__link">
-    Staging server
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -848,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+      <a href="../../heroku/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -867,12 +785,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
       
       <label class="md-nav__link" for="nav-5">
         Django
@@ -889,11 +809,49 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../django/getting_started/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Getting Started
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -903,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../django/models/" class="md-nav__link">
+      <a href="../models/" class="md-nav__link">
         Models & DB
       </a>
     </li>
@@ -956,50 +914,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-app" class="md-nav__link">
-    Create App &amp;
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-plugins-env-variables" class="md-nav__link">
-    Setup plugins &amp; Env variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploy-heroku-push" class="md-nav__link">
-    Deploy (heroku push)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#heroku_settingspy" class="md-nav__link">
-    heroku_settings.py
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migrate-database" class="md-nav__link">
-    Migrate Database
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-superuser" class="md-nav__link">
-    Create superuser
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#staging-server" class="md-nav__link">
-    Staging server
+  <a href="#commands" class="md-nav__link">
+    Commands
   </a>
   
 </li>
@@ -1016,32 +932,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/UnknownPlatypus/programming-memento/edit/master/docs/heroku/deployment.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/UnknownPlatypus/programming-memento/edit/master/docs/django/getting_started.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="deployment"><strong>Deployment</strong></h1>
+                <h1 id="starting-a-project"><strong>Starting a project</strong></h1>
 <hr />
-<h2 id="create-app"><strong>Create App &amp; </strong></h2>
-<h2 id="setup-plugins-env-variables"><strong>Setup plugins &amp; Env variables</strong></h2>
-<h2 id="deploy-heroku-push"><strong>Deploy (heroku push)</strong></h2>
-<h2 id="heroku_settingspy"><strong>heroku_settings.py</strong></h2>
-<h2 id="migrate-database"><strong>Migrate Database</strong></h2>
-<h2 id="create-superuser"><strong>Create superuser</strong></h2>
-<h2 id="staging-server"><strong>Staging server</strong></h2>
-<p>You can create a stagging server on heroku to pre-deploy tyour app and test it in a realistic environment before merging to production.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Move to Igloo</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Move to master</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>django-admin startproject PROJECT_NAME</code> - Create a new project.</li>
+<li><code>python manage.py startapp APP_NAME</code> - Create a new app.</li>
+<li><code>python manage.py runserver</code> - Start the live-reloading development server.</li>
+<li><code>python manage.py shell</code> - Enter Django shell.</li>
+<li><code>python manage.py createsuperuser</code> - Create an administrative user.</li>
+<li><code>python manage.py makemigrations</code> - Create migration file.</li>
+<li><code>python manage.py migrate</code> - Apply these migrations.</li>
+<li><code>python manage.py collectstatic</code> - Collect static file.</li>
+</ul>
+<details class="warning" open="open"><summary>Warning</summary><p>Don't forget to :<br />
+1. Add APP_NAME to INSTALLED_APP in settings.py <br />
+2. Create a urls.py file in APP_NAME<br />
+3. Add 'path('APP_NAME/', include("APP_NAME.urls"))' to main urls.py  </p>
+</details>
                 
               
               
@@ -1060,7 +973,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../app_prepare/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../heroku/troubleshooting/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1069,19 +982,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Preparing the App
+                Troubleshooting
               </div>
             </div>
           </a>
         
         
-          <a href="../troubleshooting/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../models/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Troubleshooting
+                Models & DB
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
