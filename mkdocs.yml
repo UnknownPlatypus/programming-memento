@@ -40,6 +40,10 @@ nav:
         - 'Preparing the App': 'heroku/app_prepare.md'
         - 'Deployment': 'heroku/deployment.md'
         - 'Troubleshooting': 'heroku/troubleshooting.md'
+    - 'Django':
+        - 'Getting Started': 'django/getting_started.md'
+        - 'Models & DB': 'django/models.md'
+
     - About: about.md
 
 # SITE THEME
