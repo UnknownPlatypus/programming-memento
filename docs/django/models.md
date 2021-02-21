@@ -182,8 +182,8 @@ class Entry(models.Model):
     joe = Author.objects.create(name="Joe")
     entry.authors.add(joe)
     ```   
-    ???+ info
-        Add 'Joe' to the authors list
+    ???+ warning
+        If you try to add an author to an entry you just created, you need to first save this entry and then use 'add'.
 
 === "Delete"
 
@@ -246,6 +246,31 @@ class Entry(models.Model):
     detail.entry = entry
     detail.save()
     ```
+
+=== "Multiple (Bulk)"
+    Use [bulk methods](https://docs.djangoproject.com/en/3.1/topics/db/optimization/#use-bulk-methods) to reduce the number of SQL statements.
+
+    ``` py
+    # Insert
+    Entry.objects.bulk_create([
+        Entry(headline='This is a test'),
+        Entry(headline='This is only a test'),
+    ])
+
+    # Update
+    entries[0].headline = 'This is not a test'
+    entries[1].headline = 'This is no longer a test'
+    Entry.objects.bulk_update(entries, ['headline'])
+
+    # Insert/Remove
+    my_band.members.add(me, my_friend) # Good
+    my_band.members.remove(me, my_friend) # Good
+
+    my_band.members.add(me) # Bad
+    my_band.members.add(my_friend) # Bad
+    my_band.members.remove(me) # Bad
+    my_band.members.remove(my_friend) # Bad
+    ```   
 
 ### Retrieving objects in Querysets
 
@@ -530,3 +555,59 @@ Author.objects.annotate(num_books=Count('book'), highly_rated_books=highly_rated
 
 ??? quote "Reference"
     [Full list of aggregation methods](https://docs.djangoproject.com/en/3.1/topics/db/aggregation/#aggregation)
+
+
+
+## Custom managers
+
+You can use a custom Manager in a particular model by extending the base Manager class and instantiating your custom Manager in your model.
+
+There are two reasons you might want to customize a Manager: to add extra Manager methods, and/or to modify the initial QuerySet the Manager returns.
+
+### Adding extra manager methods
+
+Adding extra Manager methods is the preferred way to add “table-level” functionality to your models. (For “row-level” functionality – i.e., functions that act on a single instance of a model object – use Model methods, not custom Manager methods.)
+
+For example, this custom Manager adds a method with_counts():
+
+```py
+from django.db import models
+from django.db.models.functions import Coalesce
+
+class PollManager(models.Manager):
+    def with_counts(self):
+        return self.annotate(
+            num_responses=Coalesce(models.Count("response"), 0)
+        )
+
+class OpinionPoll(models.Model):
+    question = models.CharField(max_length=200)
+    objects = PollManager()
+
+class Response(models.Model):
+    poll = mode
+```
+
+With this example, you’d use OpinionPoll.objects.with_counts() to get a QuerySet of OpinionPoll objects with the extra num_responses attribute attached.
+
+### Modifying a manager’s initial QuerySet
+
+You can override a Manager’s base QuerySet by overriding the Manager.get_queryset() method. get_queryset() should return a QuerySet with the properties you require.
+
+```py
+# First, define the Manager subclass.
+class DahlBookManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(author='Roald Dahl')
+
+# Then hook it into the Book model explicitly.
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=50)
+
+    objects = models.Manager() # The default manager.
+    dahl_objects = DahlBookManager() # The Dahl-specific manager.
+```
+
+??? quote "Reference"
+    [Managers](https://docs.djangoproject.com/en/3.1/topics/db/managers/)
