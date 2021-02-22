@@ -178,10 +178,11 @@ class Entry(models.Model):
 
 === "Update Many-to-many"
 
-    ``` py
+    ```py
     joe = Author.objects.create(name="Joe")
     entry.authors.add(joe)
     ```   
+    
     ???+ warning
         If you try to add an author to an entry you just created, you need to first save this entry and then use 'add'.
 
