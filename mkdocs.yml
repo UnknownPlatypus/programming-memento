@@ -44,6 +44,8 @@ nav:
         - 'Getting Started': 'django/getting_started.md'
         - 'Models & DB': 'django/models.md'
         - 'Forms': 'django/forms.md'
+    - 'Python':
+        - 'Test': 'python/python.md'
 
     - About: about.md
 
