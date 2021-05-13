@@ -53,6 +53,7 @@ Python library for simplified requests: urllib
 
 ### Web scraping
 Beautiful Soup
+Know if it is allowed with /reobots.txt file on websites (Ex : wikipedia.org/robots.txt)
 
 ### Wire protocol
 XML or JSON : Format not specific to language to send info from one to another
@@ -65,4 +66,48 @@ Text content : <name>Thibaut</name>
 Attribute : type="int" (key='value' pair)
 Self closing tag : <name hide='true'/>
 ```
+
+with python
+xml.etree.ElementTree as ET
+data = """
+<name>Chuck</name>
+<email hide="yes"/>
+"""
+tree.find('name').text : Return text inside name Tag
+tree.find('email').get('hide') : return hide attribute value from email Tag
+
 #### XML schema (XSD by W3C)
+used to validate a XML file is correct.
+
+#### JSON
+import json
+
+Same as dict for python
+
+### Web services
+API : Application Program Interface
+Oauth : Key to identifie a specific user (Usefyull for rate limiting etc)
+
+### Object programming
+Inheritance
+
+### Relational Database
+* Use integers for keys !
+* Do not replicate data !
+* Add id colum to every table !
+
+#### Foreign Keys
+* Primary Key : Generally an integer auto-increment field
+* Logical Key : What the outside world uses for lookup
+* Foreign key : Generally an integer key pointing to a row in another table
+
+Best practices : 
+* Never uses your logical key as the primary key
+* relationships absed on integers are more efficient
+
+#### Many-to-many
+Connection table with 2 foreign keys
+Use PRIMARY KEY (user_id,course_id) to make sure it's unique and optimize DB.
+
+#### Indexes
+Used to improve access performance for things like string fields
