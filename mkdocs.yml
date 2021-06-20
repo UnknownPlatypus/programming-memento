@@ -23,6 +23,7 @@ nav:
         - 'Destructuring objects and arrays': 'javascript/destructuring.md'
         - 'Map / filter / reduce / find': 'javascript/array_methods.md'
         - 'Spread operator ...': 'javascript/spread_operator.md'
+        - 'Regex': javascript/regex.md
         - 'Object property shorthand': 'javascript/object_ppt.md'
         - 'Promises': 'javascript/promises.md'
         - 'Template literals': 'javascript/template_literals.md'
@@ -46,6 +47,9 @@ nav:
         - 'Forms': 'django/forms.md'
     - 'Python':
         - 'Test': 'python/python.md'
+    - 'VSCode':
+        - 'Extensions': 'vscode\vscode.md'
+        
 
     - About: about.md
 
@@ -65,19 +69,27 @@ theme:
   features:
     - navigation.tabs # Header navigation bar
     - navigation.instant # XHR for links
-    #- toc.integrate #Table of content integrated on left
+    - toc.integrate #Table of content integrated on left
 
 # SYNTAX HIGHLIGHT
 markdown_extensions:
   - pymdownx.highlight:
       linenums: true
+  - pymdownx.emoji: # Emoji :smile: , find them here : https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences
   - markdown.extensions.admonition # Note/Danger blocks
   - pymdownx.details # Note/Danger blocks can collapse
   - pymdownx.tabbed # Tabbed code blocks
   - footnotes # Footnote references
   - def_list # Lists
+  - attr_list # Allows to add HTML attributes and CSS classes to Markdown elements
 
+  # extra css
+extra_css:
+  - stylesheets/extra.css
+  
 # SEARCH PLUGIN
 plugins:
   - search:
@@ -90,6 +102,9 @@ plugins:
 #   - auto
 
 #Social connect & Copyright
+extra:
+  version:
+    provider: mike
 extra:
   social:
     - icon: fontawesome/brands/github

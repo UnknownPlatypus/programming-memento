@@ -2,3 +2,5 @@ site/
 
 # Envirronement virtuel
 venv
+
+.vscode/
