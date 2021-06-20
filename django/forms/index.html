@@ -13,14 +13,14 @@
         <meta name="author" content="Unknown Platypus">
       
       
-        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/heroku/troubleshooting/">
+        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/django/forms/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
-        <title>Troubleshooting - Programming Memento</title>
+        <title>Forms - Programming Memento</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#troubleshooting" class="md-skip">
+        <a href="#forms" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Troubleshooting
+              Forms
             
           </span>
         </div>
@@ -212,15 +212,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../heroku/" class="md-tabs__link">
         Heroku
       </a>
     </li>
@@ -230,13 +228,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../django/getting_started/" class="md-tabs__link">
+      <a href="../getting_started/" class="md-tabs__link md-tabs__link--active">
         Django
       </a>
     </li>
@@ -754,14 +754,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
       <label class="md-nav__link" for="nav-4">
         Heroku
@@ -780,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../heroku/" class="md-nav__link">
         Django Deploy
       </a>
     </li>
@@ -792,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../app_prepare/" class="md-nav__link">
+      <a href="../../heroku/app_prepare/" class="md-nav__link">
         Preparing the App
       </a>
     </li>
@@ -804,8 +802,77 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../../heroku/deployment/" class="md-nav__link">
         Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      
+      <label class="md-nav__link" for="nav-5">
+        Django
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Django" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          Django
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        Models & DB
       </a>
     </li>
   
@@ -825,12 +892,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Troubleshooting
+          Forms
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Troubleshooting
+        Forms
       </a>
       
         
@@ -847,22 +914,56 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-logging" class="md-nav__link">
-    Enable logging
+  <a href="#get-post" class="md-nav__link">
+    GET &amp; POST
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-uploaded-files-media" class="md-nav__link">
-    User uploaded files (media)
+  <a href="#django-form-class" class="md-nav__link">
+    Django form class
+  </a>
+  
+    <nav class="md-nav" aria-label="Django form class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-form" class="md-nav__link">
+    Basic form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelform" class="md-nav__link">
+    ModelForm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-form-view" class="md-nav__link">
+    Django form view
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#valueerror-missing-staticfiles-manifest-entry-for-playlistpicture" class="md-nav__link">
-    ValueError: Missing staticfiles manifest entry for '/playlist/picture'
+  <a href="#django-form-template" class="md-nav__link">
+    Django form template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-fields" class="md-nav__link">
+    Form fields
   </a>
   
 </li>
@@ -871,73 +972,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
-      
-      <label class="md-nav__link" for="nav-5">
-        Django
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Django" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
-          <span class="md-nav__icon md-icon"></span>
-          Django
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../django/getting_started/" class="md-nav__link">
-        Getting Started
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../django/models/" class="md-nav__link">
-        Models & DB
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../django/forms/" class="md-nav__link">
-        Forms
-      </a>
     </li>
   
 
@@ -1061,16 +1095,155 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/UnknownPlatypus/programming-memento/edit/master/docs/heroku/troubleshooting.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/UnknownPlatypus/programming-memento/edit/master/docs/django/forms.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="troubleshooting"><strong>Troubleshooting</strong></h1>
+                <h1 id="forms"><strong>Forms</strong></h1>
 <hr />
-<h2 id="enable-logging"><strong>Enable logging</strong></h2>
-<h2 id="user-uploaded-files-media"><strong>User uploaded files (media)</strong></h2>
-<h2 id="valueerror-missing-staticfiles-manifest-entry-for-playlistpicture">ValueError: Missing staticfiles manifest entry for '/playlist/picture'</h2>
+<h2 id="get-post">GET &amp; POST</h2>
+<p><strong>GET and POST are the only HTTP methods to use when dealing with forms.</strong></p>
+<p><em>Django’s login form is returned using the POST method, in which the browser bundles up the form data, encodes it for transmission, sends it to the server, and then receives back its response.</em></p>
+<p><em>GET, by contrast, bundles the submitted data into a string, and uses this to compose a URL. The URL contains the address where the data must be sent, as well as the data keys and values. You can see this in action if you do a search in the Django documentation, which will produce a URL of the form https://docs.djangoproject.com/search/?q=forms&amp;release=1.</em></p>
+<p><strong>GET and POST are typically used for different purposes.</strong></p>
+<p><em>Any request that could be used to change the state of the system - for example, a request that makes changes in the database - should use POST. GET should be used only for requests that do not affect the state of the system.</em></p>
+<p><em>On the other hand, GET is suitable for things like a web search form, because the URLs that represent a GET request can easily be bookmarked, shared, or resubmitted.</em></p>
+<details class="info"><summary>Security matters</summary><p>GET would also be unsuitable for a password form, because the password would appear in the URL, and thus, also in browser history and server logs, all in plain text. Neither would it be suitable for large quantities of data, or for binary data, such as an image. A Web application that uses GET requests for admin forms is a security risk: it can be easy for an attacker to mimic a form’s request to gain access to sensitive parts of the system. POST, coupled with other protections like Django’s CSRF protection offers more control over access.</p>
+</details>
+<h2 id="django-form-class">Django form class</h2>
+<p>We define a custom form using a class.<br />
+max_length,... are used for client &amp; server side validation</p>
+<h3 id="basic-form">Basic form</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="k">class</span> <span class="nc">ContactForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span>
+    <span class="n">sender</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+    <span class="n">cc_myself</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="modelform">ModelForm</h3>
+<p>If your form is going to be used to directly add or edit a Django model, a <strong>ModelForm</strong> can save you a great deal of time, effort, and code, because it will build a form, along with the appropriate fields and their attributes, from a Model class.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.forms</span> <span class="kn">import</span> <span class="n">ModelForm</span>
+<span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Article</span>
+
+<span class="c1"># Create the form class.</span>
+<span class="k">class</span> <span class="nc">ArticleForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Article</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pub_date&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;reporter&#39;</span><span class="p">]</span>
+
+<span class="c1"># Creating a form to add an article.</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ArticleForm</span><span class="p">()</span>
+
+<span class="c1"># Creating a form to change an existing article.</span>
+<span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ArticleForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">article</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="django-form-view">Django form view</h2>
+<p>We process submitted data using the is_valid() method that does server side validation.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">ContactForm</span>
+
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># if this is a POST request we need to process the form data</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># create a form instance and populate it with data from the request:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="c1"># check whether it&#39;s valid:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># process the data in form.cleaned_data as required</span>
+            <span class="c1"># ...</span>
+            <span class="c1"># redirect to a new URL:</span>
+            <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s1">&#39;/thanks/&#39;</span><span class="p">)</span>
+
+    <span class="c1"># if a GET (or any other method) we&#39;ll create a blank form</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;name.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="django-form-template">Django form template</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/your-name/&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">csrf_token</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{{</span> <span class="n">form</span> <span class="p">}}</span>
+    <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<p>There are other output options though for the <code>&lt;label&gt;/&lt;input&gt;</code> pairs:</p>
+<ul>
+<li><code>{{ form.as_table }}</code> will render them as table cells wrapped in <code>&lt;tr&gt;</code> tags</li>
+<li><code>{{ form.as_p }}</code> will render them wrapped in <code>&lt;p&gt;</code> tags</li>
+<li><code>{{ form.as_ul }}</code> will render them wrapped in <code>&lt;li&gt;</code> tags</li>
+</ul>
+<p>Note that you’ll have to provide the surrounding <code>&lt;table&gt;</code> or <code>&lt;ul&gt;</code> elements yourself.</p>
+<h2 id="form-fields">Form fields</h2>
+<p>Most usefull form fields :</p>
+<ul>
+<li><code>required=true</code> : is the form field required of not </li>
+<li><code>widget=defaultWidget</code> : let you specifie a widget call to use</li>
+<li>
+<p><code>validators</code></p>
+</li>
+<li>
+<p><code>label</code> : Label displayed next to the field input. Default generated from field name</p>
+</li>
+<li><code>initial</code> : Put an initial value in the form</li>
+<li><code>help_text</code>: Add descriptive text for you field</li>
+<li><code>error_message</code>: Override default error message using a dict {error_type, error_msg}<code>error_message = {'required': 'Please enter your name'}</code></li>
+</ul>
                 
               
               
@@ -1089,7 +1262,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../deployment/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../models/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1098,19 +1271,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Deployment
+                Models & DB
               </div>
             </div>
           </a>
         
         
-          <a href="../../django/getting_started/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../python/python/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Getting Started
+                Test
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

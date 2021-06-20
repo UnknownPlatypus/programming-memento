@@ -46,6 +46,8 @@
     
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     
       
     
@@ -246,6 +248,38 @@
   
 
 
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/python/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vscode/vscode/" class="md-tabs__link">
+        VSCode
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
   <li class="md-tabs__item">
     <a href="../../about/" class="md-tabs__link">
       About
@@ -273,7 +307,9 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://unknownplatypus.github.io/programming-memento/" title="Programming Memento" class="md-nav__button md-logo" aria-label="Programming Memento">
       
@@ -623,6 +659,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../javascript/regex/" class="md-nav__link">
+        Regex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../javascript/object_ppt/" class="md-nav__link">
         Object property shorthand
       </a>
@@ -896,6 +944,104 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../django/forms/" class="md-nav__link">
+        Forms
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python/" class="md-nav__link">
+        Test
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      
+      <label class="md-nav__link" for="nav-7">
+        VSCode
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="VSCode" data-md-level="1">
+        <label class="md-nav__title" for="nav-7">
+          <span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode/vscode/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -923,65 +1069,6 @@
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#revert-a-commit-doesnt-change-history" class="md-nav__link">
-    Revert a commit (Doesn't change history)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#revert-changes-made-after-last-commit" class="md-nav__link">
-    Revert changes made after last commit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#revert-to-specific-commit" class="md-nav__link">
-    Revert to specific commit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remove-a-specific-commit" class="md-nav__link">
-    Remove a specific commit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#amend" class="md-nav__link">
-    Amend
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           <div class="md-content">
@@ -1187,7 +1274,7 @@ git  push --force-with-lease
       <script>
         app = initialize({
           base: "../..",
-          features: ['navigation.tabs', 'navigation.instant'],
+          features: ['navigation.tabs', 'navigation.instant', 'toc.integrate'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)

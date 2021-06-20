@@ -46,6 +46,8 @@
     
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     
       
     
@@ -246,6 +248,38 @@
   
 
 
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/python/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vscode/vscode/" class="md-tabs__link">
+        VSCode
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
   <li class="md-tabs__item">
     <a href="../../about/" class="md-tabs__link">
       About
@@ -273,7 +307,9 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://unknownplatypus.github.io/programming-memento/" title="Programming Memento" class="md-nav__button md-logo" aria-label="Programming Memento">
       
@@ -616,6 +652,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../javascript/regex/" class="md-nav__link">
+        Regex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../javascript/object_ppt/" class="md-nav__link">
         Object property shorthand
       </a>
@@ -889,6 +937,104 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../django/forms/" class="md-nav__link">
+        Forms
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python/" class="md-nav__link">
+        Test
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      
+      <label class="md-nav__link" for="nav-7">
+        VSCode
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="VSCode" data-md-level="1">
+        <label class="md-nav__title" for="nav-7">
+          <span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode/vscode/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -916,58 +1062,6 @@
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#use-case-1-git-clone-someone-elses-repository-git-push-to-your-own-repository" class="md-nav__link">
-    Use Case #1 : Git clone someone else's repository &amp; Git push to your own repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-case-2-undo-last-git-push" class="md-nav__link">
-    Use Case #2 : Undo last git push
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-case-3-move-git-folder-to-child-folder" class="md-nav__link">
-    Use Case #3 : Move git folder to child folder
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-case-4-duplicate-a-repo" class="md-nav__link">
-    Use Case #4 : Duplicate a repo
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           <div class="md-content">
@@ -1201,7 +1295,7 @@ git push --mirror https://github.com/exampleuser/new-repository.git
       <script>
         app = initialize({
           base: "../..",
-          features: ['navigation.tabs', 'navigation.instant'],
+          features: ['navigation.tabs', 'navigation.instant', 'toc.integrate'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
