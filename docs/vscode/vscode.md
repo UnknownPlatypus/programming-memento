@@ -19,11 +19,29 @@ Provides path completion for visual studio code.
 
 [Path Auto-complete&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete){ .md-button .md-button--primary  }
 
+### Better Comments
+
+Improve your code commenting by annotating with alert, informational, TODOs, and more!
+
+[Better Comments&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments){ .md-button .md-button--primary  }
+
 ### Live Share
 
 Real-time collaborative development from the comfort of your favorite tools.
 
 [Live Code Share&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare){ .md-button .md-button--primary  }
+
+### Todo Tree
+
+Show TODO, FIXME, etc. comment tags in a tree view
+
+[Todo Tree&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree){ .md-button .md-button--primary  }
+
+### Indenticator
+
+Highlights your current indent depth
+
+[Todo Tree&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=SirTori.indenticator){ .md-button .md-button--primary  }
 
 ## Python
 
@@ -72,6 +90,12 @@ Code snippets for JavaScript in ES6 syntax
 
 [ES6 Code Snippets&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippetso){ .md-button .md-button--primary }
 
+### ES7 React Snippets
+
+Simple extensions for React, Redux and Graphql in JS/TS with ES7 syntax
+
+[ESLint&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets){ .md-button .md-button--primary }
+
 ### ES Lint
 
 Integrates ESLint JavaScript into VS Code.
@@ -86,6 +110,43 @@ Integrates ESLint JavaScript into VS Code.
         "source.fixAll.eslint": true
     }
     ```
+
+### Import Cost
+
+Display import/require package size in the editor
+
+[ESLint&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost){ .md-button .md-button--primary }
+
+## HTML & CSS
+
+### HTML snippets
+
+Full HTML tags including HTML5 Snippets
+
+[HTML Snippets&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets){ .md-button .md-button--primary }
+
+### Auto Rename Tag
+
+Auto rename paired HTML/XML tag
+
+[Auto Rename Tag&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag){ .md-button .md-button--primary }
+
+### Auto Close
+
+Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text
+
+[Auto Close Tag&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag){ .md-button .md-button--primary }
+
+### IntelliSense for CSS class names in HTML
+
+CSS class name completion for the HTML class attribute based on the definitions found in your workspace.
+[IntelliSense for CSS Class&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion){ .md-button .md-button--primary }
+
+### CSS Peek
+
+Allow peeking to css ID and class strings as definitions from html files to respective CSS. Allows peek and goto definition.
+
+[CSS Peek&nbsp;&nbsp;:material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek){ .md-button .md-button--primary }
 
 ## Markdown
 
