@@ -37,6 +37,11 @@ Show TODO, FIXME, etc. comment tags in a tree view
 
 [Todo Tree&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree){ .md-button .md-button--primary  }
 
+### CodeSnap
+
+📷 Take beautiful screenshots of your code
+[CodeSnap&nbsp; :material-microsoft-visual-studio-code:](https://marketplace.visualstudio.com/items?itemName=adpyke.codesnap){ .md-button .md-button--primary  }
+
 ### Indenticator
 
 Highlights your current indent depth
