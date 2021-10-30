@@ -20,6 +20,7 @@ nav:
         - 'Variable declaration': 'javascript/variable_decl.md'
         - 'Arrow Function': 'javascript/arrow_function.md'
         - 'Function default parameter value': 'javascript/function_default.md'
+        - 'Closure': 'javascript/closure.md'
         - 'Destructuring objects and arrays': 'javascript/destructuring.md'
         - 'Map / filter / reduce / find': 'javascript/array_methods.md'
         - 'Spread operator ...': 'javascript/spread_operator.md'
