@@ -4,6 +4,15 @@ A promise is an object which can be returned synchronously from an asynchronous 
 
 Promises can be used to avoid [callback hell](http://callbackhell.com/), and they are more and more frequently encountered in modern JavaScript projects.
 
+A Promise is an object with 3 main properties `value` and 2 hidden arrays `onFulfillment` and `onRejection`. Any function in these arrays will automatically be run with value as an argument.
+
+- `.then` method is adding function to `onFulfillment`.
+- `.catch` method is adding function to `onRejection`.
+
+Depending on if we face an error or not, different function will be invoked.
+
+> Function in the `onFulfillment` and `onRejection` array don't go in the regular callback queue, they enter their own microtask queue.
+
 ## Sample code
 
 ```js

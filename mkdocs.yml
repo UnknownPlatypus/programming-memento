@@ -17,6 +17,7 @@ nav:
         - 'Git Use Cases': 'git/usecases.md'
     - 'JS':
         - 'Introduction': 'javascript/index.md'
+        - 'JS & Browser': 'javascript/js_browser.md'
         - 'Variable declaration': 'javascript/variable_decl.md'
         - 'Arrow Function': 'javascript/arrow_function.md'
         - 'Function default parameter value': 'javascript/function_default.md'
