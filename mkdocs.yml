@@ -49,9 +49,11 @@ nav:
         - 'Forms': 'django/forms.md'
     - 'Python':
         - 'Test': 'python/python.md'
+        - 'Q&A': 'python/Q&A.md'
     - 'VSCode':
-        - 'Extensions': 'vscode\vscode.md'
-        
+        - 'Extensions': 'vscode/vscode.md'
+    - 'Hello Watt':
+        - 'Extensions': 'hellowatt/troubleshooting.md'
 
     - About: about.md
 
@@ -77,10 +79,15 @@ theme:
 markdown_extensions:
   - pymdownx.highlight:
       linenums: true
+      anchor_linenums: true
   - pymdownx.emoji: # Emoji :smile: , find them here : https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.superfences
+  - pymdownx.tasklist: # Enable tasks list 
+      custom_checkbox: true
+  - pymdownx.inlinehilite # Syntax Highlight code blocks
+  - pymdownx.snippets # Enable external code files embedding
+  - pymdownx.superfences # Allow arbitrary nesting of code blocks, lists, tabs, ...
   - markdown.extensions.admonition # Note/Danger blocks
   - pymdownx.details # Note/Danger blocks can collapse
   - pymdownx.tabbed # Tabbed code blocks
