@@ -1,6 +1,6 @@
 # <a>Programming Memento</a><a href="url"><img src="https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/material/.icons/material/webpack.svg" align="left" height="64" width="64" ></a> 
 
-Mkdocs Programming Memento using [material](https://squidfunk.github.io/mkdocs-material/).
+Mkdocs Programming Memento using [material for mkdocs](https://squidfunk.github.io/mkdocs-material/).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,13 +9,12 @@ Mkdocs Programming Memento using [material](https://squidfunk.github.io/mkdocs-m
  * [Description](#Description)
  * [Utilisation](#Utilisation)
  * [Contributing](#Contributing)
- * [Local Customizable Version](#Local-Customizable-Version)
+ * [Dev](#Dev)
  * [License](#license)
 
 ## Description
 
 This is a markdown documentation about programming syntaxes & routines I learned during the past years.
-Just a quick remainder basically
 
 ## Utilisation
 
@@ -29,7 +28,7 @@ The site is available at this URL : https://unknownplatypus.github.io/programmin
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Local Customizable Version
+## Dev
 
 1. Clone this repository : `git clone https://github.com/UnknownPlatypus/programming-memento.git`
 2. Create a virtual environement : `python -m venv venv`
@@ -41,6 +40,6 @@ The site is available at this URL : https://unknownplatypus.github.io/programmin
 
 ## License
 
-Copyright(C) 2020 UnknownPlatypus. 
+Copyright(C) 2022 UnknownPlatypus. 
 
 This memento is available under the MIT license. See the LICENSE file for more info.
