@@ -1,0 +1,2307 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Programming Memento">
+      
+      
+        <meta name="author" content="Unknown Platypus">
+      
+      
+        <link rel="canonical" href="https://unknownplatypus.github.io/programming-memento/django/models/">
+      
+      
+        <link rel="prev" href="../getting_started/">
+      
+      
+        <link rel="next" href="../forms/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>Models & DB - Programming Memento</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../static/css/unclicable_button.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#models-db" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programming Memento" class="md-header__button md-logo" aria-label="Programming Memento" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.45 17.39-8.09 4.58V18.4l5.04-2.77 3.05 1.76m.55-.5V7.31L18.04 9v6.18L21 16.89m-17.45.5 8.09 4.57V18.4L6.6 15.63l-3.05 1.76m-.55-.5V7.31L5.96 9v6.18L3 16.89m.35-10.2L11.64 2v3.45L6.33 8.37l-.05.02-2.93-1.7m17.3 0L12.36 2v3.45l5.31 2.93.04.02 2.94-1.71m-9.01 10.9-4.97-2.74V9.44l4.97 2.87v5.28m.72 0 4.97-2.73V9.44l-4.97 2.87v5.28M7 8.81l5-2.75 5 2.75-5 2.88-5-2.88Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programming Memento
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Models & DB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UnknownPlatypus/programming-memento" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../git/" class="md-tabs__link">
+        Git
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../javascript/" class="md-tabs__link">
+        JS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../heroku/" class="md-tabs__link">
+        Heroku
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting_started/" class="md-tabs__link md-tabs__link--active">
+        Django
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/python/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vscode/vscode/" class="md-tabs__link">
+        VSCode
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../hellowatt/troubleshooting/" class="md-tabs__link">
+        Hello Watt
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../about/" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programming Memento" class="md-nav__button md-logo" aria-label="Programming Memento" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.45 17.39-8.09 4.58V18.4l5.04-2.77 3.05 1.76m.55-.5V7.31L18.04 9v6.18L21 16.89m-17.45.5 8.09 4.57V18.4L6.6 15.63l-3.05 1.76m-.55-.5V7.31L5.96 9v6.18L3 16.89m.35-10.2L11.64 2v3.45L6.33 8.37l-.05.02-2.93-1.7m17.3 0L12.36 2v3.45l5.31 2.93.04.02 2.94-1.71m-9.01 10.9-4.97-2.74V9.44l4.97 2.87v5.28m.72 0 4.97-2.73V9.44l-4.97 2.87v5.28M7 8.81l5-2.75 5 2.75-5 2.88-5-2.88Z"/></svg>
+
+    </a>
+    Programming Memento
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UnknownPlatypus/programming-memento" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        Git Essentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/branch/" class="md-nav__link">
+        Git Branch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/commit/" class="md-nav__link">
+        Undo Commits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/stash/" class="md-nav__link">
+        Git Stash
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/remote/" class="md-nav__link">
+        Git Remote
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/fork_pullrequest/" class="md-nav__link">
+        Fork & Pull Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/git_flow/" class="md-nav__link">
+        Git Flow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/usecases/" class="md-nav__link">
+        Git Use Cases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          JS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          JS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/js_browser/" class="md-nav__link">
+        JS & Browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/variable_decl/" class="md-nav__link">
+        Variable declaration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/arrow_function/" class="md-nav__link">
+        Arrow Function
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/function_default/" class="md-nav__link">
+        Function default parameter value
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/closure/" class="md-nav__link">
+        Closure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/destructuring/" class="md-nav__link">
+        Destructuring objects and arrays
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/array_methods/" class="md-nav__link">
+        Map / filter / reduce / find
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/spread_operator/" class="md-nav__link">
+        Spread operator ...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/regex/" class="md-nav__link">
+        Regex
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/object_ppt/" class="md-nav__link">
+        Object property shorthand
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/promises/" class="md-nav__link">
+        Promises
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/template_literals/" class="md-nav__link">
+        Template literals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/import_export/" class="md-nav__link">
+        Imports / Exports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/this/" class="md-nav__link">
+        JavaScript this
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/class/" class="md-nav__link">
+        Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/extend_super/" class="md-nav__link">
+        Extends and super keywords
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/async/" class="md-nav__link">
+        Async Await
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/truthy/" class="md-nav__link">
+        Truthy / Falsy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/anamorphisms/" class="md-nav__link">
+        Anamorphisms / Catamporphisms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/generators/" class="md-nav__link">
+        Generators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/static_method/" class="md-nav__link">
+        Static Methods
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Heroku
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Heroku
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/" class="md-nav__link">
+        Django Deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/app_prepare/" class="md-nav__link">
+        Preparing the App
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heroku/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Django
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Django
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Models & DB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Models & DB
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-field-types" class="md-nav__link">
+    Common field types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-field-arguments" class="md-nav__link">
+    Common field arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-base-class" class="md-nav__link">
+    Abstract base class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-models" class="md-nav__link">
+    Proxy models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#createupdatedelete" class="md-nav__link">
+    Create/Update/Delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieving-objects-in-querysets" class="md-nav__link">
+    Retrieving objects in Querysets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querysubsets" class="md-nav__link">
+    QuerySubsets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-lookups" class="md-nav__link">
+    Field lookups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querying-jsonfield" class="md-nav__link">
+    Querying JSONField
+  </a>
+  
+    <nav class="md-nav" aria-label="Querying JSONField">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-field-lookup" class="md-nav__link">
+    JSON field lookup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-annotate" class="md-nav__link">
+    Aggregate / Annotate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-managers" class="md-nav__link">
+    Custom managers
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom managers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-extra-manager-methods" class="md-nav__link">
+    Adding extra manager methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-a-managers-initial-queryset" class="md-nav__link">
+    Modifying a manager’s initial QuerySet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forms/" class="md-nav__link">
+        Forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python/" class="md-nav__link">
+        Test
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/Q%26A/" class="md-nav__link">
+        Q&A
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          VSCode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode/vscode/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Hello Watt
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Hello Watt
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hellowatt/troubleshooting/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="models-db"><strong>Models &amp; DB</strong></h1>
+<hr />
+<h2 id="models">Models</h2>
+<h3 id="common-field-types">Common field types</h3>
+<hr />
+<ul>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.CharField">CharField</a> is used to define short-to-mid sized fixed-length strings. You must specify the max_length of the data to be stored.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.TextField">TextField</a> is used for large arbitrary-length strings. You may specify a max_length for the field, but this is used only when the field is displayed in forms (it is not enforced at the database level).</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.IntegerField">IntegerField</a> is a field for storing integer (whole number) values, and for validating entered values as integers in forms.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#datefield">DateField</a> and <a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#datetimefield">DateTimeField</a> are used for storing/representing dates and date/time information (as Python datetime.date in and datetime.datetime objects, respectively). These fields can additionally declare the (mutually exclusive) parameters auto_now=True (to set the field to the current date every time the model is saved), auto_now_add (to only set the date when the model is first created) , and default (to set a default date that can be overridden by the user).</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#emailfield">EmailField</a> is used to store and validate email addresses.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#filefield">FileField</a> and <a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#imagefield">ImageField</a> are used to upload files and images respectively (the ImageField adds additional validation that the uploaded file is an image). These have parameters to define how and where the uploaded files are stored.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#autofield">AutoField</a> is a special type of IntegerField that automatically increments. A primary key of this type is automatically added to your model if you don’t explicitly specify one.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#foreignkey">ForeignKey</a> is used to specify a one-to-many relationship to another database model (e.g. a car has one manufacturer, but a manufacturer can make many cars). The "one" side of the relationship is the model that contains the "key" (models containing a "foreign key" referring to that "key", are on the "many" side of such a relationship).</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#manytomanyfield">ManyToManyField</a> is used to specify a many-to-many relationship (e.g. a book can have several genres, and each genre can contain several books). In our library app we will use these very similarly to ForeignKeys, but they can be used in more complicated ways to describe the relationships between groups. These have the parameter on_delete to define what happens when the associated record is deleted (e.g. a value of models.SET_NULL would set the value to NULL).</li>
+</ul>
+<details class="tip reference">
+<summary>Tip</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#model-field-types">Full list of field types</a></p>
+</details>
+<h3 id="common-field-arguments">Common field arguments</h3>
+<hr />
+<ul>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#help-text">help_text</a> : Provides a text label for HTML forms (e.g. in the admin site), as described above.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#verbose-name">verbose_name</a>: A human-readable name for the field used in field labels. If not specified, Django will infer the default verbose name from the field name.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#default">default</a>: The default value for the field. This can be a value or a callable object, in which case the object will be called every time a new record is created.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#null">null</a>: If True, Django will store blank values as NULL in the database for fields where this is appropriate (a CharField will instead store an empty string). The default is False.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#blank">blank</a>: If True, the field is allowed to be blank in your forms. The default is False, which means that Django's form validation will force you to enter a value. This is often used with null=True , because if you're going to allow blank values, you also want the database to be able to represent them appropriately.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#choices">choices</a>: A group of choices for this field. If this is provided, the default corresponding form widget will be a select box with these choices instead of the standard text field.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#primary-key">primary_key</a>: If True, sets the current field as the primary key for the model (A primary key is a special database column designated to uniquely identify all the different table records). If no field is specified as the primary key then Django will automatically add a field for this purpose.</li>
+</ul>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#field-options">Full list of field options</a></p>
+</details>
+<h3 id="metadata">Metadata</h3>
+<hr />
+<p>You can declare model-level metadata for your Model by declaring class Meta, as shown.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;-pubdate&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;BetterName&#39;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;Better Names&#39;</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>ordering will change query default order<br />
+verbose_name will change display in admin panel</p>
+</details>
+<h4 id="abstract-base-class">Abstract base class</h4>
+<p>Abstract base classes are useful when you want to put some common information into a number of other models. You write your base class and put <code>abstract=True</code> in the Meta class. This model will then not be used to create any database table. Instead, when it is used as a base class for other models, its fields will be added to those of the child class.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">class</span> <span class="nc">CommonInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">()</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        <span class="n">abstract</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">CommonInfo</span><span class="p">):</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">home_group</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="proxy-models">Proxy models</h4>
+<p>You can create, delete and update instances of the proxy model and all the data will be saved as if you were using the original (non-proxied) model. The difference is that you can change things like the default model ordering or the default manager in the proxy, without having to alter the original.  </p>
+<p>You could also use a proxy model to define a different default ordering on a model. You might not always want to order the Person model, but regularly order by the last_name attribute when you use the proxy:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">class</span> <span class="nc">OrderedPerson</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;last_name&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>        <span class="n">proxy</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/">Full list of metadata options</a></p>
+</details>
+<h3 id="methods">Methods</h3>
+<hr />
+<p>Minimally, in every model you should define the standard Python class method __str__() to return a human-readable string for each object</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span>
+</code></pre></div></td></tr></table></div>
+<p>Another common method to include in Django models is get_absolute_url(), which returns a URL for displaying individual model records on the website (if you define this method then Django will automatically add a "View on Site" button to the model's record editing screens in the Admin site). A typical pattern for get_absolute_url() is shown below.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the url to access a particular instance of the model.&quot;&quot;&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;model-detail-view&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)])</span>
+</code></pre></div></td></tr></table></div>
+<details class="note">
+<summary>Note</summary>
+<p>Assuming you will use URLs like /myapplication/mymodelname/2 to display individual records for your model (where "2" is the id for a particular record), you will need to create a URL mapper to pass the response and id to a "model detail view" (which will do the work required to display the record). <br />
+The reverse() function above is able to "reverse" your url mapper (in the above case named 'model-detail-view') in order to create a URL of the right format.    </p>
+</details>
+<h2 id="queries">Queries</h2>
+<p>Throughout this guide (and in the reference), we’ll refer to the following models, which comprise a Weblog application:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">class</span> <span class="nc">Blog</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">tagline</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="k">class</span> <span class="nc">Entry</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="n">blog</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Blog</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    <span class="n">headline</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>    <span class="n">body_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">()</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>    <span class="n">mod_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">()</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>    <span class="n">authors</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Author</span><span class="p">)</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>    <span class="n">number_of_comments</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>    <span class="n">number_of_pingbacks</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>    <span class="n">rating</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">headline</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="createupdatedelete">Create/Update/Delete</h3>
+<div class="tabbed-set" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Create</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Method 1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">Blog</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Beatles Blog&#39;</span><span class="p">,</span> <span class="n">tagline</span><span class="o">=</span><span class="s1">&#39;latest Beatles news&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">b</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1"># Method 2</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">b</span> <span class="o">=</span> <span class="n">Blog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Beatles Blog&#39;</span><span class="p">,</span> <span class="n">tagline</span><span class="o">=</span><span class="s1">&#39;latest Beatles news&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Create a new blog object<br />
+<em>The save method has no return value</em></p>
+</details>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Update</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Method 1</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">b5</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;New name&#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">b5</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Method 2</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s1">&#39;Everything is the same&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<ol>
+<li>The update() method is applied instantly and returns the number of rows matched by the query  </li>
+<li>Calls to update can also use F expressions to update one field based on the value of another field in the model</li>
+</ol>
+</details>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Update Many-to-many</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">joe</span> <span class="o">=</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Joe&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">entry</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">joe</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>If you try to add an author to an entry you just created, you need to first save this entry and then use 'add'.</p>
+</details>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Delete</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Delete one object</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;weblog.Entry&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># Delete every objects from a queryset</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2005</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;webapp.Entry&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>The delete method immediately deletes the object and returns the number of objects deleted and a dictionary with the number of deletions per object type.</p>
+</details>
+</div>
+<input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><label for="__tabbed_1_5">Copy</label><div class="tabbed-content">
+<p>Although there is no built-in method for copying model instances, it is possible to easily create new instance with all fields’ values copied. In the simplest case, you can set pk to None. Using our blog example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">blog</span> <span class="o">=</span> <span class="n">Blog</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My blog&#39;</span><span class="p">,</span> <span class="n">tagline</span><span class="o">=</span><span class="s1">&#39;Blogging is easy&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">blog</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1"># blog.pk == 1</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">blog</span><span class="o">.</span><span class="n">pk</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">blog</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1"># blog.pk == 2</span>
+</code></pre></div></td></tr></table></div>
+<p>Things get more complicated if you use inheritance. Consider a subclass of Blog:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">class</span> <span class="nc">ThemeBlog</span><span class="p">(</span><span class="n">Blog</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>    <span class="n">theme</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">django_blog</span> <span class="o">=</span> <span class="n">ThemeBlog</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Django&#39;</span><span class="p">,</span> <span class="n">tagline</span><span class="o">=</span><span class="s1">&#39;Django is easy&#39;</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">django_blog</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1"># django_blog.pk == 3</span>
+</code></pre></div></td></tr></table></div>
+<p>Due to how inheritance works, you have to set both pk and id to None:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">django_blog</span><span class="o">.</span><span class="n">pk</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">django_blog</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">django_blog</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1"># django_blog.pk == 4</span>
+</code></pre></div></td></tr></table></div>
+<p>This process doesn’t copy relations that aren’t part of the model’s database table. For example, Entry has a ManyToManyField to Author. After duplicating an entry, you must set the many-to-many relations for the new entry:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># some previous entry</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">old_authors</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">entry</span><span class="o">.</span><span class="n">pk</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">entry</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">entry</span><span class="o">.</span><span class="n">authors</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">old_authors</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+For a OneToOneField, you must duplicate the related object and assign it to the new object’s field to avoid violating the one-to-one unique constraint. For example, assuming entry is already duplicated as above:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">detail</span> <span class="o">=</span> <span class="n">EntryDetail</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">detail</span><span class="o">.</span><span class="n">pk</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">detail</span><span class="o">.</span><span class="n">entry</span> <span class="o">=</span> <span class="n">entry</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">detail</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><label for="__tabbed_1_6">Multiple (Bulk)</label><div class="tabbed-content">
+<p>Use <a href="https://docs.djangoproject.com/en/3.1/topics/db/optimization/#use-bulk-methods">bulk methods</a> to reduce the number of SQL statements.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># Insert</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">bulk_create</span><span class="p">([</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    <span class="n">Entry</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s1">&#39;This is a test&#39;</span><span class="p">),</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>    <span class="n">Entry</span><span class="p">(</span><span class="n">headline</span><span class="o">=</span><span class="s1">&#39;This is only a test&#39;</span><span class="p">),</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="p">])</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="c1"># Update</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="n">entries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">headline</span> <span class="o">=</span> <span class="s1">&#39;This is not a test&#39;</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="n">entries</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">headline</span> <span class="o">=</span> <span class="s1">&#39;This is no longer a test&#39;</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">bulk_update</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">])</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="c1"># Insert/Remove</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_friend</span><span class="p">)</span> <span class="c1"># Good</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_friend</span><span class="p">)</span> <span class="c1"># Good</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">me</span><span class="p">)</span> <span class="c1"># Bad</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">my_friend</span><span class="p">)</span> <span class="c1"># Bad</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">me</span><span class="p">)</span> <span class="c1"># Bad</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="n">my_band</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">my_friend</span><span class="p">)</span> <span class="c1"># Bad</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<h3 id="retrieving-objects-in-querysets">Retrieving objects in Querysets</h3>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">All</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">all_entries</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>The all() method returns a QuerySet of all the objects in the database.</p>
+</details>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Filter/Exclude</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">q1</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">headline__startswith</span><span class="o">=</span><span class="s2">&quot;What&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">q2</span> <span class="o">=</span> <span class="n">q1</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Filter/Exclude returns a new QuerySet </p>
+</details>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Get</label><div class="tabbed-content">
+<p>If you know there is only one object that matches your query, you can use the get() method on a Manager which returns the object </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">one_entry</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>Returns an object !<br />
+Django will complain if more than one item matches the get() query. (MultipleObjectsReturned error)<br />
+Django will complain if there are no results that match the query (DoesNotExist exception)</p>
+</details>
+</div>
+</div>
+<h3 id="querysubsets">QuerySubsets</h3>
+<p>Get only a part of the queryset</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">First</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">all_entries</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Returns the first <strong>object</strong> of the queryset</p>
+</details>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Slicing</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1">#Use case 1</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">all_entries</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="c1">#Use case 2</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">all_entries</span> <span class="o">=</span> <span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="n">last_entries</span> <span class="o">=</span> <span class="n">all_entries</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">all_entries</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+</code></pre></div></td></tr></table></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<ol>
+<li>Returns the first 5 elements</li>
+<li>returne the last 5 elements</li>
+</ol>
+</details>
+</div>
+</div>
+<h3 id="field-lookups">Field lookups</h3>
+<p>Basic lookups keyword arguments take the form <code>field__lookuptype=value</code></p>
+<div class="tabbed-set" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Greater/lower</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__lte</span><span class="o">=</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">)</span> <span class="c1"># pub_date &lt;= 2006-01-01</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__lt</span><span class="o">=</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">)</span> <span class="c1"># pub_date &lt; 2006-01-01</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">)</span> <span class="c1"># pub_date &gt;= 2006-01-01</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__gt</span><span class="o">=</span><span class="s1">&#39;2006-01-01&#39;</span><span class="p">)</span> <span class="c1"># pub_date &gt; 2006-01-01</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Text related</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span>
+<span class="normal"><a href="#__codelineno-22-5">5</a></span>
+<span class="normal"><a href="#__codelineno-22-6">6</a></span>
+<span class="normal"><a href="#__codelineno-22-7">7</a></span>
+<span class="normal"><a href="#__codelineno-22-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">Blog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__iexact</span><span class="o">=</span><span class="s2">&quot;beatles blog&quot;</span><span class="p">)</span> <span class="c1"># Case-insensitive match</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">headline__contains</span><span class="o">=</span><span class="s1">&#39;Lennon&#39;</span><span class="p">)</span> <span class="c1"># Headline contains &#39;Lennon&#39;</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">headline__icontains</span><span class="o">=</span><span class="s1">&#39;Lennon&#39;</span><span class="p">)</span> <span class="c1"># Case-insensitive version</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">headline__startswith</span><span class="o">=</span><span class="s1">&#39;Lennon&#39;</span><span class="p">)</span> <span class="c1"># Headline starts with &#39;Lennon&#39;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">headline__endswith</span><span class="o">=</span><span class="s1">&#39;Lennon&#39;</span><span class="p">)</span> <span class="c1"># Headline ends with &#39;Lennon&#39;</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="c1"># Case-insensitive versions : istartswith / iendswith</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Date related</label><div class="tabbed-content">
+<p>Assuming we have :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__range</span><span class="o">=</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">))</span> <span class="c1"># Date in range</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__date__gt</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># date &gt;=</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__year__gte</span><span class="o">=</span><span class="mi">2005</span><span class="p">)</span> <span class="c1"># Year &gt;= 2005</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__month__gte</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># Month &gt;= 6</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__day__gte</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Day &gt;= 3</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__week</span><span class="o">=</span><span class="mi">52</span><span class="p">)</span> <span class="c1"># Week number = 52</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__week_day</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__quarter</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="n">Event</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">time__hour</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="n">Event</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">timestamp__minute__gte</span><span class="o">=</span><span class="mi">29</span><span class="p">)</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="n">Event</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">time__second</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><label for="__tabbed_4_4">Regex</label><div class="tabbed-content">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">title__regex</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;^(An?|The) +&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<p>Django offers a powerful and intuitive way to “follow” relationships in lookups, taking care of the SQL JOINs for you automatically, behind the scenes</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">Blog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">entry__headline__contains</span><span class="o">=</span><span class="s1">&#39;Lennon&#39;</span><span class="p">)</span> <span class="c1"># Lookup</span>
+</code></pre></div></td></tr></table></div>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/ref/models/querysets/#field-lookups">Full list of field lookups</a></p>
+</details>
+<h3 id="querying-jsonfield">Querying JSONField</h3>
+<p>To query based on a given dictionary key, use that key as the lookup name:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span>
+<span class="normal"><a href="#__codelineno-27-11">11</a></span>
+<span class="normal"><a href="#__codelineno-27-12">12</a></span>
+<span class="normal"><a href="#__codelineno-27-13">13</a></span>
+<span class="normal"><a href="#__codelineno-27-14">14</a></span>
+<span class="normal"><a href="#__codelineno-27-15">15</a></span>
+<span class="normal"><a href="#__codelineno-27-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Rufus&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="o">...</span>     <span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;labrador&#39;</span><span class="p">,</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="o">...</span>     <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="o">...</span>         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="o">...</span>         <span class="s1">&#39;other_pets&#39;</span><span class="p">:</span> <span class="p">[{</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="o">...</span>             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Fishy&#39;</span><span class="p">,</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="o">...</span>         <span class="p">}],</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="o">...</span>     <span class="p">},</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="o">...</span> <span class="p">})</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Rufus</span><span class="o">&gt;</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Meg&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span>
+<a id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__breed</span><span class="o">=</span><span class="s1">&#39;collie&#39;</span><span class="p">)</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+<a id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__owner__name</span><span class="o">=</span><span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<a id="__codelineno-27-16" name="__codelineno-27-16"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Rufus</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="json-field-lookup">JSON field lookup</h4>
+<hr />
+<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Contains</label><div class="tabbed-content">
+<p>The returned objects are those where the given dict of key-value pairs are all contained in the top-level of the field</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__contains</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">})</span> 
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="c1"># &lt;QuerySet [&lt;Dog: Meg&gt;]&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Contained_by</label><div class="tabbed-content">
+<p>The objects returned will be those where the key-value pairs on the object are a subset of those in the value passed</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Rufus&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;labrador&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">})</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Rufus</span><span class="o">&gt;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Meg&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">})</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{})</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Fred</span><span class="o">&gt;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__contained_by</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">})</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Fred</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__contained_by</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">})</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Fred</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not supported on Oracle and SQLite</p>
+</div>
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">has_key / has_keys / has_any_keys</label><div class="tabbed-content">
+<p>Returns objects where the given key is in the top-level of the data</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-30-10">10</a></span>
+<span class="normal"><a href="#__codelineno-30-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Rufus&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;labrador&#39;</span><span class="p">})</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Rufus</span><span class="o">&gt;</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Meg&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;breed&#39;</span><span class="p">:</span> <span class="s1">&#39;collie&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">})</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__has_key</span><span class="o">=</span><span class="s1">&#39;owner&#39;</span><span class="p">)</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__has_keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;breed&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">])</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a><span class="n">Dog</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">data__has_any_keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;breed&#39;</span><span class="p">,</span> <span class="s1">&#39;owner&#39;</span><span class="p">])</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Rufus</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Dog</span><span class="p">:</span> <span class="n">Meg</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/topics/db/queries/#querying-jsonfield">Full list of field lookups</a></p>
+</details>
+<h2 id="aggregate-annotate">Aggregate / Annotate</h2>
+<p>Throughout this guide, we’ll refer to the following models. These models are used to track the inventory for a series of online bookstores:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-31-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-31-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-31-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-31-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-31-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-31-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-31-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-31-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-31-10">10</a></span>
+<span class="normal"><a href="#__codelineno-31-11">11</a></span>
+<span class="normal"><a href="#__codelineno-31-12">12</a></span>
+<span class="normal"><a href="#__codelineno-31-13">13</a></span>
+<span class="normal"><a href="#__codelineno-31-14">14</a></span>
+<span class="normal"><a href="#__codelineno-31-15">15</a></span>
+<span class="normal"><a href="#__codelineno-31-16">16</a></span>
+<span class="normal"><a href="#__codelineno-31-17">17</a></span>
+<span class="normal"><a href="#__codelineno-31-18">18</a></span>
+<span class="normal"><a href="#__codelineno-31-19">19</a></span>
+<span class="normal"><a href="#__codelineno-31-20">20</a></span>
+<span class="normal"><a href="#__codelineno-31-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a>
+<a id="__codelineno-31-10" name="__codelineno-31-10"></a><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12"></a>    <span class="n">pages</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<a id="__codelineno-31-13" name="__codelineno-31-13"></a>    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-31-14" name="__codelineno-31-14"></a>    <span class="n">rating</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">()</span>
+<a id="__codelineno-31-15" name="__codelineno-31-15"></a>    <span class="n">authors</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Author</span><span class="p">)</span>
+<a id="__codelineno-31-16" name="__codelineno-31-16"></a>    <span class="n">publisher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Publisher</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+<a id="__codelineno-31-17" name="__codelineno-31-17"></a>    <span class="n">pubdate</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">()</span>
+<a id="__codelineno-31-18" name="__codelineno-31-18"></a>
+<a id="__codelineno-31-19" name="__codelineno-31-19"></a><span class="k">class</span> <span class="nc">Store</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-31-20" name="__codelineno-31-20"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<a id="__codelineno-31-21" name="__codelineno-31-21"></a>    <span class="n">books</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Book</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Here’s how to do common aggregate queries, assuming the models above</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-32-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-32-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-32-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-32-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-32-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-32-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-32-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-32-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-32-10">10</a></span>
+<span class="normal"><a href="#__codelineno-32-11">11</a></span>
+<span class="normal"><a href="#__codelineno-32-12">12</a></span>
+<span class="normal"><a href="#__codelineno-32-13">13</a></span>
+<span class="normal"><a href="#__codelineno-32-14">14</a></span>
+<span class="normal"><a href="#__codelineno-32-15">15</a></span>
+<span class="normal"><a href="#__codelineno-32-16">16</a></span>
+<span class="normal"><a href="#__codelineno-32-17">17</a></span>
+<span class="normal"><a href="#__codelineno-32-18">18</a></span>
+<span class="normal"><a href="#__codelineno-32-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="c1"># Total number of books.</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="c1"># Total number of books with publisher=BaloneyPress</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">publisher__name</span><span class="o">=</span><span class="s1">&#39;BaloneyPress&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="c1"># Avg/Max/Min/...</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Avg</span><span class="p">,</span><span class="n">Max</span><span class="p">,</span><span class="n">Min</span><span class="p">,</span><span class="n">Sum</span><span class="p">,</span><span class="n">StdDev</span><span class="p">,</span><span class="n">Variance</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Avg</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Max</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Min</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Sum</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">StdDev</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Variance</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+<a id="__codelineno-32-15" name="__codelineno-32-15"></a>
+<a id="__codelineno-32-16" name="__codelineno-32-16"></a><span class="c1"># Difference between the highest priced book and the average price of all books.</span>
+<a id="__codelineno-32-17" name="__codelineno-32-17"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">FloatField</span>
+<a id="__codelineno-32-18" name="__codelineno-32-18"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+<a id="__codelineno-32-19" name="__codelineno-32-19"></a>    <span class="n">price_diff</span><span class="o">=</span><span class="n">Max</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">output_field</span><span class="o">=</span><span class="n">FloatField</span><span class="p">())</span> <span class="o">-</span> <span class="n">Avg</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>Common Annotate queries (per object summaries)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-33-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-33-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-33-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-33-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-33-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-33-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-33-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-33-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-33-10">10</a></span>
+<span class="normal"><a href="#__codelineno-33-11">11</a></span>
+<span class="normal"><a href="#__codelineno-33-12">12</a></span>
+<span class="normal"><a href="#__codelineno-33-13">13</a></span>
+<span class="normal"><a href="#__codelineno-33-14">14</a></span>
+<span class="normal"><a href="#__codelineno-33-15">15</a></span>
+<span class="normal"><a href="#__codelineno-33-16">16</a></span>
+<span class="normal"><a href="#__codelineno-33-17">17</a></span>
+<span class="normal"><a href="#__codelineno-33-18">18</a></span>
+<span class="normal"><a href="#__codelineno-33-19">19</a></span>
+<span class="normal"><a href="#__codelineno-33-20">20</a></span>
+<span class="normal"><a href="#__codelineno-33-21">21</a></span>
+<span class="normal"><a href="#__codelineno-33-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="c1"># Each publisher, each with a count of books as a &quot;num_books&quot; attribute.</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Count</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="n">pubs</span> <span class="o">=</span> <span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_books</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">))</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="c1"># Each publisher, with a separate count of books with a rating above and below 5</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="n">above_5</span> <span class="o">=</span> <span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">Q</span><span class="p">(</span><span class="n">book__rating__gt</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a><span class="n">below_5</span> <span class="o">=</span> <span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">Q</span><span class="p">(</span><span class="n">book__rating__lte</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="n">pubs</span> <span class="o">=</span> <span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">below_5</span><span class="o">=</span><span class="n">below_5</span><span class="p">,</span><span class="n">above_5</span><span class="o">=</span><span class="n">above_5</span><span class="p">)</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a><span class="n">pubs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">above_5</span> <span class="c1"># 23</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="n">pubs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">below_5</span> <span class="c1"># 12   </span>
+<a id="__codelineno-33-12" name="__codelineno-33-12"></a>
+<a id="__codelineno-33-13" name="__codelineno-33-13"></a><span class="c1"># The top 5 publishers, in order by number of books.</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="n">pubs</span> <span class="o">=</span> <span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_books</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-num_books&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="n">pubs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">num_books</span> <span class="c1"># 1323</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16"></a>
+<a id="__codelineno-33-17" name="__codelineno-33-17"></a><span class="c1"># generate a list of books that have more than one author</span>
+<a id="__codelineno-33-18" name="__codelineno-33-18"></a><span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_authors</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;authors&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">num_authors__gt</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-33-19" name="__codelineno-33-19"></a>
+<a id="__codelineno-33-20" name="__codelineno-33-20"></a><span class="c1"># generate a list of authors with a count of highly rated books</span>
+<a id="__codelineno-33-21" name="__codelineno-33-21"></a><span class="n">highly_rated</span> <span class="o">=</span> <span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">Q</span><span class="p">(</span><span class="n">book__rating__gte</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+<a id="__codelineno-33-22" name="__codelineno-33-22"></a><span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_books</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;book&#39;</span><span class="p">),</span> <span class="n">highly_rated_books</span><span class="o">=</span><span class="n">highly_rated</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">If in doubt, inspect the SQL query!</p>
+<p>In order to understand what happens in your query, consider inspecting the <strong>query</strong> property of your <strong>QuerySet</strong></p>
+</div>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/topics/db/aggregation/#aggregation">Full list of aggregation methods</a></p>
+</details>
+<h2 id="custom-managers">Custom managers</h2>
+<p>You can use a custom Manager in a particular model by extending the base Manager class and instantiating your custom Manager in your model.</p>
+<p>There are two reasons you might want to customize a Manager: to add extra Manager methods, and/or to modify the initial QuerySet the Manager returns.</p>
+<h3 id="adding-extra-manager-methods">Adding extra manager methods</h3>
+<p>Adding extra Manager methods is the preferred way to add “table-level” functionality to your models. (For “row-level” functionality – i.e., functions that act on a single instance of a model object – use Model methods, not custom Manager methods.)</p>
+<p>For example, this custom Manager adds a method with_counts():</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-34-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-34-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-34-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-34-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-34-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-34-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-34-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-34-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-34-10">10</a></span>
+<span class="normal"><a href="#__codelineno-34-11">11</a></span>
+<span class="normal"><a href="#__codelineno-34-12">12</a></span>
+<span class="normal"><a href="#__codelineno-34-13">13</a></span>
+<span class="normal"><a href="#__codelineno-34-14">14</a></span>
+<span class="normal"><a href="#__codelineno-34-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="kn">from</span> <span class="nn">django.db.models.functions</span> <span class="kn">import</span> <span class="n">Coalesce</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="k">class</span> <span class="nc">PollManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>    <span class="k">def</span> <span class="nf">with_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a>            <span class="n">num_responses</span><span class="o">=</span><span class="n">Coalesce</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a>        <span class="p">)</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a>
+<a id="__codelineno-34-10" name="__codelineno-34-10"></a><span class="k">class</span> <span class="nc">OpinionPoll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11"></a>    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12"></a>    <span class="n">objects</span> <span class="o">=</span> <span class="n">PollManager</span><span class="p">()</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13"></a>
+<a id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="k">class</span> <span class="nc">Response</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15"></a>    <span class="n">poll</span> <span class="o">=</span> <span class="n">mode</span>
+</code></pre></div></td></tr></table></div>
+<p>With this example, you’d use OpinionPoll.objects.with_counts() to get a QuerySet of OpinionPoll objects with the extra num_responses attribute attached.</p>
+<h3 id="modifying-a-managers-initial-queryset">Modifying a manager’s initial QuerySet</h3>
+<p>You can override a Manager’s base QuerySet by overriding the Manager.get_queryset() method. get_queryset() should return a QuerySet with the properties you require.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-35-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-35-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-35-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-35-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-35-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-35-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-35-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-35-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-35-10">10</a></span>
+<span class="normal"><a href="#__codelineno-35-11">11</a></span>
+<span class="normal"><a href="#__codelineno-35-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="c1"># First, define the Manager subclass.</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="k">class</span> <span class="nc">DahlBookManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">author</span><span class="o">=</span><span class="s1">&#39;Roald Dahl&#39;</span><span class="p">)</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="c1"># Then hook it into the Book model explicitly.</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a>    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a>
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a>    <span class="n">objects</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span> <span class="c1"># The default manager.</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12"></a>    <span class="n">dahl_objects</span> <span class="o">=</span> <span class="n">DahlBookManager</span><span class="p">()</span> <span class="c1"># The Dahl-specific manager.</span>
+</code></pre></div></td></tr></table></div>
+<details class="quote">
+<summary>Reference</summary>
+<p><a href="https://docs.djangoproject.com/en/3.1/topics/db/managers/">Managers</a></p>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../getting_started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Getting Started
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../forms/" class="md-footer__link md-footer__link--next" aria-label="Next: Forms" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Forms
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Thibaut Decombe
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/UnknownPlatypus" target="_blank" rel="noopener" title="UnknownPlatypus on Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "toc.integrate", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+        
+          <script src="../../static/js/unclicable_button.js"></script>
+        
+      
+    
+  </body>
+</html>
