@@ -1,0 +1,13 @@
+.unclickable {
+  transition: left 0.3s ease 0s, top 0.3s ease 0s !important;
+  position: absolute;
+  font-size: 18px;
+  width: 256px;
+  height: 55px;
+  left: 3%;
+  top: 10%;
+}
+details[open].unclickable_wrapper {
+    position: relative;
+    height: 500px;
+}

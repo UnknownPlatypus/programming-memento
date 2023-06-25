@@ -74,7 +74,8 @@ theme:
     - navigation.tabs # Header navigation bar
     - navigation.instant # XHR for links
     - toc.integrate #Table of content integrated on left
-
+    - content.code.copy # COpy to clipboard button
+    - navigation.footer # Previous & Next footer buttons
 # SYNTAX HIGHLIGHT
 markdown_extensions:
   - pymdownx.highlight:
@@ -95,10 +96,13 @@ markdown_extensions:
   - def_list # Lists
   - attr_list # Allows to add HTML attributes and CSS classes to Markdown elements
 
-  # extra css
+# extra statics
 extra_css:
-  - stylesheets/extra.css
-  
+  - static/css/unclicable_button.css
+
+extra_javascript:
+  - static/js/unclicable_button.js
+
 # SEARCH PLUGIN
 plugins:
   - search:
@@ -114,7 +118,6 @@ plugins:
 extra:
   version:
     provider: mike
-extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/UnknownPlatypus
